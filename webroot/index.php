@@ -50,7 +50,15 @@
  *
  */
 	if (!defined('CAKE_CORE_INCLUDE_PATH')) {
-		define('CAKE_CORE_INCLUDE_PATH',  DS . 'home' . DS . 'bazil' . DS . 'cakeweb' . DS . 'cakephp');
+            switch($_SERVER['HTTP_HOST'])
+            {
+                case 'tm':
+                    define('CAKE_CORE_INCLUDE_PATH',  DS . 'home' . DS . 'bazil' . DS . 'cakeweb' . DS . 'cakephp');
+                break;
+                case 'transportmanager':
+                    define('CAKE_CORE_INCLUDE_PATH',  DS . 'home' . DS . 'komisek' . DS . 'web' . DS . 'cakeweb');
+                break;
+            }
 	}
 
 /**
