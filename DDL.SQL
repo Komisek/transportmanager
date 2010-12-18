@@ -1,245 +1,403 @@
-SET FOREIGN_KEY_CHECKS=0;
+-- phpMyAdmin SQL Dump
+-- version 3.3.8.1
+-- http://www.phpmyadmin.net
+--
+-- Počítač: localhost
+-- Vygenerováno: Sobota 18. prosince 2010, 20:46
+-- Verze MySQL: 5.1.46
+-- Verze PHP: 5.3.3
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-CREATE TABLE achived_transportation_locomotives
-(
-	achieved_transportations_id INTEGER,
-	locomotive_id INTEGER
-) 
-;
+--
+-- Databáze: `transportmanager`
+--
 
+-- --------------------------------------------------------
 
-CREATE TABLE archived_transportations
-(
-	id INTEGER NOT NULL,
-	path_id INTEGER,
-	locomotive_id INTEGER,
-	engine_driver_id INTEGER,
-	start_station_id INTEGER,
-	end_station_id INTEGER,
-	datum_cas DATETIME,
-	PRIMARY KEY (id)
-) 
-;
+--
+-- Struktura tabulky `archived_transportations`
+--
 
+CREATE TABLE IF NOT EXISTS `archived_transportations` (
+  `id` int(11) NOT NULL,
+  `path_id` int(11) DEFAULT NULL,
+  `locomotive_id` int(11) DEFAULT NULL,
+  `engine_driver_id` int(11) DEFAULT NULL,
+  `start_station_id` int(11) DEFAULT NULL,
+  `end_station_id` int(11) DEFAULT NULL,
+  `datum_cas` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE archived_transportations_employes
-(
-	employe_id INTEGER,
-	achived_transportation_id INTEGER
-) 
-;
-
-
-CREATE TABLE cargo_wagons
-(
-	id INTEGER NOT NULL,
-	wagon_series_id INTEGER,
-	cislo_him INTEGER,
-	cislo_vozu INTEGER,
-	druh_brzdeni VARCHAR(50),
-	druh_brzdoveho_valce VARCHAR(50),
-	dvojkoli_revize INTEGER,
-	dvojkoli_typ VARCHAR(50),
-	dvojkoli_velikost INTEGER,
-	dvojkoli_vyrobce VARCHAR(50),
-	oprava_typ VARCHAR(50),
-	pruznice VARCHAR(50),
-	rada VARCHAR(50),
-	rezim_vozu INTEGER,
-	roky_revize_dvojkoli_bez_zvednuti_skrine INTEGER,
-	roky_revize_kotle INTEGER,
-	roky_revize_vozu INTEGER,
-	rozvadec VARCHAR(50),
-	rucni_brzda VARCHAR(50),
-	rychlost_km INTEGER,
-	vlastni_hmotnost INTEGER,
-	zdrze VARCHAR(50),
-	PRIMARY KEY (id)
-) 
-;
+--
+-- Vypisuji data pro tabulku `archived_transportations`
+--
 
 
-CREATE TABLE cargo_wagons_trains
-(
-	cargo_wagon_id INTEGER,
-	train_id INTEGER
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `archived_transportations_employes`
+--
+
+CREATE TABLE IF NOT EXISTS `archived_transportations_employes` (
+  `employe_id` int(11) DEFAULT NULL,
+  `achived_transportation_id` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `archived_transportations_employes`
+--
 
 
-CREATE TABLE cargo_wagons_transportations_archives
-(
-	cargo_wagon_id INTEGER,
-	archivet_transportation_id INTEGER
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `archived_transportation_locomotives`
+--
+
+CREATE TABLE IF NOT EXISTS `archived_transportation_locomotives` (
+  `archived_transportations_id` int(11) DEFAULT NULL,
+  `locomotive_id` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `archived_transportation_locomotives`
+--
 
 
-CREATE TABLE employes
-(
-	id INTEGER NOT NULL,
-	name VARCHAR(50),
-	surname VARCHAR(50),
-	role_id INTEGER,
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `cargo_wagons`
+--
+
+CREATE TABLE IF NOT EXISTS `cargo_wagons` (
+  `id` int(11) NOT NULL,
+  `wagon_series_id` int(11) DEFAULT NULL,
+  `cislo_him` int(11) DEFAULT NULL,
+  `cislo_vozu` int(11) DEFAULT NULL,
+  `druh_brzdeni` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `druh_brzdoveho_valce` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `dvojkoli_revize` int(11) DEFAULT NULL,
+  `dvojkoli_typ` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `dvojkoli_velikost` int(11) DEFAULT NULL,
+  `dvojkoli_vyrobce` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `oprava_typ` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `pruznice` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rada` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rezim_vozu` int(11) DEFAULT NULL,
+  `roky_revize_dvojkoli_bez_zvednuti_skrine` int(11) DEFAULT NULL,
+  `roky_revize_kotle` int(11) DEFAULT NULL,
+  `roky_revize_vozu` int(11) DEFAULT NULL,
+  `rozvadec` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rucni_brzda` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rychlost_km` int(11) DEFAULT NULL,
+  `vlastni_hmotnost` int(11) DEFAULT NULL,
+  `zdrze` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `cargo_wagons`
+--
 
 
-CREATE TABLE employes_trains
-(
-	employe_id INTEGER,
-	train_id INTEGER
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `cargo_wagons_trains`
+--
+
+CREATE TABLE IF NOT EXISTS `cargo_wagons_trains` (
+  `cargo_wagon_id` int(11) DEFAULT NULL,
+  `train_id` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `cargo_wagons_trains`
+--
 
 
-CREATE TABLE locomotives
-(
-	id INTEGER NOT NULL,
-	brzda_parkovaci_druh VARCHAR(50),
-	brzda_primocara_druh VARCHAR(50),
-	brzda_rucni_druh VARCHAR(50),
-	brzda_tahova_druh VARCHAR(50),
-	brzdici_vaha INTEGER,
-	cislo_prukazu_zpusobnosti VARCHAR(50),
-	delka_pres_narazniky INTEGER,
-	dvojkoli_revize INTEGER,
-	dvojkoli_velikost INTEGER,
-	dvojkoli_vyrobce VARCHAR(50),
-	hmotnost INTEGER,
-	inventarni_cislo INTEGER,
-	klimatizace VARCHAR(50),
-	km_revize_celkova INTEGER,
-	km_revize_dvojkoli INTEGER,
-	km_revize_provozni INTEGER,
-	komunikacni_zarizeni VARCHAR(50),
-	maximalni_rychlost INTEGER,
-	motor_typ VARCHAR(50),
-	oprava_napln VARCHAR(50),
-	oprava_probihajici VARCHAR(50),
-	oznaceni VARCHAR(50),
-	provozni_cislo INTEGER,
-	rada VARCHAR(50),
-	rok_vyroby INTEGER,
-	rychlomer_cislo INTEGER,
-	rychlomer_typ VARCHAR(50),
-	vykon INTEGER,
-	vyrobce VARCHAR(50),
-	vyrobni_cislo INTEGER,
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `cargo_wagons_transportations_archives`
+--
+
+CREATE TABLE IF NOT EXISTS `cargo_wagons_transportations_archives` (
+  `cargo_wagon_id` int(11) DEFAULT NULL,
+  `archivet_transportation_id` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `cargo_wagons_transportations_archives`
+--
 
 
-CREATE TABLE locomotives_trains
-(
-	train_id INTEGER,
-	locomotive_id INTEGER
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `employes`
+--
+
+CREATE TABLE IF NOT EXISTS `employes` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `surname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `employes`
+--
 
 
-CREATE TABLE near_stations
-(
-	id INTEGER NOT NULL,
-	station_id INTEGER,
-	next_station_id INTEGER,
-	vzdalenost INTEGER,
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `employes_trains`
+--
+
+CREATE TABLE IF NOT EXISTS `employes_trains` (
+  `employe_id` int(11) DEFAULT NULL,
+  `train_id` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `employes_trains`
+--
 
 
-CREATE TABLE paths
-(
-	id INTEGER NOT NULL,
-	station_id INTEGER,
-	next_id INTEGER,
-	lft INTEGER,
-	rght INTEGER,
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `locomotives`
+--
+
+CREATE TABLE IF NOT EXISTS `locomotives` (
+  `id` int(11) NOT NULL,
+  `brzda_parkovaci_druh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `brzda_primocara_druh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `brzda_rucni_druh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `brzda_tahova_druh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `brzdici_vaha` int(11) DEFAULT NULL,
+  `cislo_prukazu_zpusobnosti` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `delka_pres_narazniky` int(11) DEFAULT NULL,
+  `dvojkoli_revize` int(11) DEFAULT NULL,
+  `dvojkoli_velikost` int(11) DEFAULT NULL,
+  `dvojkoli_vyrobce` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `hmotnost` int(11) DEFAULT NULL,
+  `inventarni_cislo` int(11) DEFAULT NULL,
+  `klimatizace` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `km_revize_celkova` int(11) DEFAULT NULL,
+  `km_revize_dvojkoli` int(11) DEFAULT NULL,
+  `km_revize_provozni` int(11) DEFAULT NULL,
+  `komunikacni_zarizeni` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `maximalni_rychlost` int(11) DEFAULT NULL,
+  `motor_typ` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `oprava_napln` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `oprava_probihajici` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `oznaceni` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `provozni_cislo` int(11) DEFAULT NULL,
+  `rada` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rok_vyroby` int(11) DEFAULT NULL,
+  `rychlomer_cislo` int(11) DEFAULT NULL,
+  `rychlomer_typ` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vykon` int(11) DEFAULT NULL,
+  `vyrobce` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vyrobni_cislo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `locomotives`
+--
 
 
-CREATE TABLE periodicities
-(
-	id INTEGER NOT NULL,
-	name VARCHAR(50),
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `locomotives_trains`
+--
+
+CREATE TABLE IF NOT EXISTS `locomotives_trains` (
+  `train_id` int(11) DEFAULT NULL,
+  `locomotive_id` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `locomotives_trains`
+--
 
 
-CREATE TABLE roles
-(
-	id INTEGER NOT NULL,
-	name VARCHAR(50),
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `near_stations`
+--
+
+CREATE TABLE IF NOT EXISTS `near_stations` (
+  `id` int(11) NOT NULL,
+  `station_id` int(11) DEFAULT NULL,
+  `next_station_id` int(11) DEFAULT NULL,
+  `vzdalenost` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `near_stations`
+--
 
 
-CREATE TABLE routes
-(
-	id INTEGER NOT NULL,
-	start_station_id INTEGER,
-	end_station_id INTEGER,
-	datum_cas DATETIME,
-	periodicity_id INTEGER,
-	train_id INTEGER,
-	path_id INTEGER,
-	stav_schvaleni VARCHAR(50),
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `paths`
+--
+
+CREATE TABLE IF NOT EXISTS `paths` (
+  `id` int(11) NOT NULL,
+  `station_id` int(11) DEFAULT NULL,
+  `next_id` int(11) DEFAULT NULL,
+  `lft` int(11) DEFAULT NULL,
+  `rght` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `paths`
+--
 
 
-CREATE TABLE stations
-(
-	id INTEGER NOT NULL,
-	name VARCHAR(100),
-	okres VARCHAR(100),
-	kraj VARCHAR(100),
-	cislo VARCHAR(50),
-	gps VARCHAR(50),
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `periodicities`
+--
+
+CREATE TABLE IF NOT EXISTS `periodicities` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `periodicities`
+--
 
 
-CREATE TABLE trains
-(
-	id INTEGER NOT NULL,
-	route_id INTEGER,
-	locomotive_id INTEGER,
-	engine_driver_id INTEGER,
-	stav_rezervace VARCHAR(50),
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `roles`
+--
+
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `roles`
+--
 
 
-CREATE TABLE wagon_series
-(
-	id INTEGER NOT NULL,
-	brzdici_vaha INTEGER,
-	cislo INTEGER,
-	delka INTEGER,
-	oznaceni VARCHAR(50),
-	pocet_naprav INTEGER,
-	rozvor INTEGER,
-	rucni_brzda VARCHAR(50),
-	unosnost INTEGER,
-	vyska_nad_temenem_kolejnice INTEGER,
-	vzdalenost_os INTEGER,
-	PRIMARY KEY (id)
-) 
-;
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `routes`
+--
+
+CREATE TABLE IF NOT EXISTS `routes` (
+  `id` int(11) NOT NULL,
+  `start_station_id` int(11) DEFAULT NULL,
+  `end_station_id` int(11) DEFAULT NULL,
+  `datum_cas` datetime DEFAULT NULL,
+  `periodicity_id` int(11) DEFAULT NULL,
+  `train_id` int(11) DEFAULT NULL,
+  `path_id` int(11) DEFAULT NULL,
+  `stav_schvaleni` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `routes`
+--
 
 
+-- --------------------------------------------------------
 
-SET FOREIGN_KEY_CHECKS=1;
+--
+-- Struktura tabulky `stations`
+--
+
+CREATE TABLE IF NOT EXISTS `stations` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `okres` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `kraj` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cislo` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gps` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `stations`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `trains`
+--
+
+CREATE TABLE IF NOT EXISTS `trains` (
+  `id` int(11) NOT NULL,
+  `route_id` int(11) DEFAULT NULL,
+  `locomotive_id` int(11) DEFAULT NULL,
+  `engine_driver_id` int(11) DEFAULT NULL,
+  `stav_rezervace` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `trains`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `wagon_series`
+--
+
+CREATE TABLE IF NOT EXISTS `wagon_series` (
+  `id` int(11) NOT NULL,
+  `brzdici_vaha` int(11) DEFAULT NULL,
+  `cislo` int(11) DEFAULT NULL,
+  `delka` int(11) DEFAULT NULL,
+  `oznaceni` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `pocet_naprav` int(11) DEFAULT NULL,
+  `rozvor` int(11) DEFAULT NULL,
+  `rucni_brzda` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `unosnost` int(11) DEFAULT NULL,
+  `vyska_nad_temenem_kolejnice` int(11) DEFAULT NULL,
+  `vzdalenost_os` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Vypisuji data pro tabulku `wagon_series`
+--
+

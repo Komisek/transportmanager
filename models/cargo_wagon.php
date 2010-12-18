@@ -29,21 +29,6 @@ class CargoWagon extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		),
-		'TransportationsArchive' => array(
-			'className' => 'TransportationsArchive',
-			'joinTable' => 'cargo_wagons_transportations_archives',
-			'foreignKey' => 'cargo_wagon_id',
-			'associationForeignKey' => 'transportations_archive_id',
-			'unique' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
 		)
 	);
 
