@@ -24,7 +24,7 @@ switch($_SERVER['HTTP_HOST'])
                                     'host' => 'localhost',
                                     'login' => 'komisek',
                                     'password' => 'komisek',
-                                    'database' => 'transportmanager',
+                                    'database' => 'TransportManager',
                             );
                     }
                 break;
