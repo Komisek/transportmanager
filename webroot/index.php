@@ -50,7 +50,7 @@
  *
  */
 	if (!defined('CAKE_CORE_INCLUDE_PATH')) {
-		define('CAKE_CORE_INCLUDE_PATH',  DS . 'home' . DS . 'komisek' . DS . 'web' . DS . 'cakeweb');
+		define('CAKE_CORE_INCLUDE_PATH',  DS . 'home' . DS . 'bazil' . DS . 'cakeweb' . DS . 'cakephp');
 	}
 
 /**

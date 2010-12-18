@@ -5,9 +5,9 @@ class DATABASE_CONFIG {
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'komisek',
-		'password' => 'komisek',
-		'database' => 'TransportManager',
+		'login' => 'transportmanager',
+		'password' => 'transportmanager',
+		'database' => 'transportmanager',
 	);
 }
 ?>
