@@ -1,5 +1,10 @@
 <?php
 
+if(!isset($_SERVER['HTTP_HOST']))
+{
+    $_SERVER['HTTP_HOST'] = 'tm';
+}
+
 switch($_SERVER['HTTP_HOST'])
             {
                 case 'tm':
