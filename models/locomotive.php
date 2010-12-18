@@ -5,11 +5,11 @@ class Locomotive extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasAndBelongsToMany = array(
-		'AchivedTransportation' => array(
-			'className' => 'AchivedTransportation',
-			'joinTable' => 'achived_transportation_locomotives',
+		'ArchivedTransportation' => array(
+			'className' => 'ArchivedTransportation',
+			'joinTable' => 'archived_transportation_locomotives',
 			'foreignKey' => 'locomotive_id',
-			'associationForeignKey' => 'achived_transportation_id',
+			'associationForeignKey' => 'archived_transportation_id',
 			'unique' => true,
 			'conditions' => '',
 			'fields' => '',
