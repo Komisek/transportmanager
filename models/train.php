@@ -21,10 +21,10 @@ class Train extends AppModel {
 			'insertQuery' => ''
 		),
 		'Employe' => array(
-			'className' => 'Employe',
-			'joinTable' => 'employes_trains',
+			'className' => 'Employee',
+			'joinTable' => 'employees_trains',
 			'foreignKey' => 'train_id',
-			'associationForeignKey' => 'employe_id',
+			'associationForeignKey' => 'employee_id',
 			'unique' => true,
 			'conditions' => '',
 			'fields' => '',

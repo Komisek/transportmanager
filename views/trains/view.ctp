@@ -37,8 +37,8 @@
 		<li><?php echo $this->Html->link(__('New Train', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cargo Wagons', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Cargo Wagon', true), array('controller' => 'cargo_wagons', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Employes', true), array('controller' => 'employes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Employees', true), array('controller' => 'employees', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Locomotives', true), array('controller' => 'locomotives', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Locomotive', true), array('controller' => 'locomotives', 'action' => 'add')); ?> </li>
 	</ul>
@@ -120,7 +120,7 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Employes');?></h3>
+	<h3><?php __('Related Employees');?></h3>
 	<?php if (!empty($train['Employe'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -144,9 +144,9 @@
 			<td><?php echo $employe['surname'];?></td>
 			<td><?php echo $employe['role_id'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'employes', 'action' => 'view', $employe['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'employes', 'action' => 'edit', $employe['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'employes', 'action' => 'delete', $employe['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employe['id'])); ?>
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'employees', 'action' => 'view', $employe['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'employees', 'action' => 'edit', $employe['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'employees', 'action' => 'delete', $employe['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employe['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -155,7 +155,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employees', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>

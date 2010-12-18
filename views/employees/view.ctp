@@ -1,24 +1,24 @@
-<div class="employes view">
-<h2><?php  __('Employe');?></h2>
+<div class="employees view">
+<h2><?php  __('Employee');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $employe['Employe']['id']; ?>
+			<?php echo $employee['Employee']['id']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $employe['Employe']['name']; ?>
+			<?php echo $employee['Employee']['name']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Surname'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $employe['Employe']['surname']; ?>
+			<?php echo $employee['Employee']['surname']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Role'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($employe['Role']['name'], array('controller' => 'roles', 'action' => 'view', $employe['Role']['id'])); ?>
+			<?php echo $this->Html->link($employee['Role']['name'], array('controller' => 'roles', 'action' => 'view', $employee['Role']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -26,10 +26,10 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Employe', true), array('action' => 'edit', $employe['Employe']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Employe', true), array('action' => 'delete', $employe['Employe']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employe['Employe']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Employes', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employe', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Employee', true), array('action' => 'edit', $employee['Employee']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Delete Employee', true), array('action' => 'delete', $employee['Employee']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employee['Employee']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Employees', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Employee', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Roles', true), array('controller' => 'roles', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Role', true), array('controller' => 'roles', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Archived Transportations', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
@@ -40,7 +40,7 @@
 </div>
 <div class="related">
 	<h3><?php __('Related Archived Transportations');?></h3>
-	<?php if (!empty($employe['ArchivedTransportation'])):?>
+	<?php if (!empty($employee['ArchivedTransportation'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
@@ -54,7 +54,7 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($employe['ArchivedTransportation'] as $archivedTransportation):
+		foreach ($employee['ArchivedTransportation'] as $archivedTransportation):
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
@@ -86,7 +86,7 @@
 </div>
 <div class="related">
 	<h3><?php __('Related Trains');?></h3>
-	<?php if (!empty($employe['Train'])):?>
+	<?php if (!empty($employee['Train'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
@@ -98,7 +98,7 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($employe['Train'] as $train):
+		foreach ($employee['Train'] as $train):
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';

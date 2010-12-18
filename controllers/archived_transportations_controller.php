@@ -26,8 +26,10 @@ class ArchivedTransportationsController extends AppController {
 				$this->Session->setFlash(__('The archived transportation could not be saved. Please, try again.', true));
 			}
 		}
+		$cargoWagons = $this->ArchivedTransportation->CargoWagon->find('list');
 		$employes = $this->ArchivedTransportation->Employe->find('list');
-		$this->set(compact('employes'));
+		$locomotives = $this->ArchivedTransportation->Locomotive->find('list');
+		$this->set(compact('cargoWagons', 'employes', 'locomotives'));
 	}
 
 	function edit($id = null) {
@@ -46,8 +48,10 @@ class ArchivedTransportationsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->ArchivedTransportation->read(null, $id);
 		}
+		$cargoWagons = $this->ArchivedTransportation->CargoWagon->find('list');
 		$employes = $this->ArchivedTransportation->Employe->find('list');
-		$this->set(compact('employes'));
+		$locomotives = $this->ArchivedTransportation->Locomotive->find('list');
+		$this->set(compact('cargoWagons', 'employes', 'locomotives'));
 	}
 
 	function delete($id = null) {
