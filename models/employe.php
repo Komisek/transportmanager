@@ -3,7 +3,12 @@ class Employe extends AppModel {
 	var $name = 'Employe';
 	var $displayField = 'name';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
+        var $belongsTo = array(
+                'Role' => array(
+                    'className' => 'Role',
+                    'foreginKey' => 'role_id'
+                )
+        );
 	var $hasAndBelongsToMany = array(
 		'ArchivedTransportation' => array(
 			'className' => 'ArchivedTransportation',
