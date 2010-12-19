@@ -26,14 +26,14 @@ class Route extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'start_station' => array(
+		'StartStation' => array(
 			'className' => 'Station',
 			'foreignKey' => 'start_station_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-		'end_station' => array(
+		'EndStation' => array(
 			'className' => 'Station',
 			'foreignKey' => 'end_station_id',
 			'conditions' => '',
