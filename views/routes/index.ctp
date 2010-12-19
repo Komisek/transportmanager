@@ -23,10 +23,10 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $route['Route']['id']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($route['start_station']['name'], array('controller' => 'stations', 'action' => 'view', $route['start_station']['id'])); ?>
+			<?php echo $this->Html->link($route['StartStation']['name'], array('controller' => 'stations', 'action' => 'view', $route['StartStation']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($route['end_station']['name'], array('controller' => 'stations', 'action' => 'view', $route['end_station']['id'])); ?>
+			<?php echo $this->Html->link($route['EndStation']['name'], array('controller' => 'stations', 'action' => 'view', $route['EndStation']['id'])); ?>
 		</td>
 		<td><?php echo $route['Route']['datum_cas']; ?>&nbsp;</td>
 		<td>

@@ -35,6 +35,8 @@
 		<li><?php echo $this->Html->link(__('Delete Train', true), array('action' => 'delete', $train['Train']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $train['Train']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Trains', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Train', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cargo Wagons', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Cargo Wagon', true), array('controller' => 'cargo_wagons', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Employees', true), array('controller' => 'employees', 'action' => 'index')); ?> </li>
@@ -42,6 +44,54 @@
 		<li><?php echo $this->Html->link(__('List Locomotives', true), array('controller' => 'locomotives', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Locomotive', true), array('controller' => 'locomotives', 'action' => 'add')); ?> </li>
 	</ul>
+</div>
+<div class="related">
+	<h3><?php __('Related Routes');?></h3>
+	<?php if (!empty($train['Route'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('Start Station Id'); ?></th>
+		<th><?php __('End Station Id'); ?></th>
+		<th><?php __('Datum Cas'); ?></th>
+		<th><?php __('Periodicity Id'); ?></th>
+		<th><?php __('Train Id'); ?></th>
+		<th><?php __('Path Id'); ?></th>
+		<th><?php __('Stav Schvaleni'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($train['Route'] as $route):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $route['id'];?></td>
+			<td><?php echo $route['start_station_id'];?></td>
+			<td><?php echo $route['end_station_id'];?></td>
+			<td><?php echo $route['datum_cas'];?></td>
+			<td><?php echo $route['periodicity_id'];?></td>
+			<td><?php echo $route['train_id'];?></td>
+			<td><?php echo $route['path_id'];?></td>
+			<td><?php echo $route['stav_schvaleni'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'routes', 'action' => 'view', $route['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'routes', 'action' => 'edit', $route['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'routes', 'action' => 'delete', $route['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $route['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
 </div>
 <div class="related">
 	<h3><?php __('Related Cargo Wagons');?></h3>

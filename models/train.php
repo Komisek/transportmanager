@@ -4,6 +4,13 @@ class Train extends AppModel {
 	var $displayField = 'id';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
+        var $hasMany = array(
+                'Route' => array(
+                        'className' => 'Route',
+                        'foreignKey' => 'route_id'
+                )
+        );
+
 	var $hasAndBelongsToMany = array(
 		'CargoWagon' => array(
 			'className' => 'CargoWagon',

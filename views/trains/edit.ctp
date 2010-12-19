@@ -21,6 +21,8 @@
 
 		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Train.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Train.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Trains', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cargo Wagons', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Cargo Wagon', true), array('controller' => 'cargo_wagons', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Employees', true), array('controller' => 'employees', 'action' => 'index')); ?> </li>
