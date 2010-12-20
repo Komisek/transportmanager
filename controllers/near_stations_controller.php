@@ -27,7 +27,7 @@ class NearStationsController extends AppController {
 			}
 		}
 		$stations = $this->NearStation->Station->find('list');
-		$nextStations = $this->NearStation->NextStation->find('list');
+		$nextStations = $this->NearStation->Station->find('list');
 		$this->set(compact('stations', 'nextStations'));
 	}
 
