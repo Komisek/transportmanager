@@ -20,7 +20,7 @@ class ArchivedTransportation extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		),
-		'Employe' => array(
+		'Employee' => array(
 			'className' => 'Employee',
 			'joinTable' => 'archived_transportations_employees',
 			'foreignKey' => 'archived_transportation_id',

@@ -9,8 +9,6 @@
 		echo $this->Form->input('email');
 		echo $this->Form->input('passwd');
 		echo $this->Form->input('role_id');
-		echo $this->Form->input('ArchivedTransportation');
-		echo $this->Form->input('Train');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

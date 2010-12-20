@@ -73,8 +73,8 @@ DROP TABLE IF EXISTS `archived_transportations_employees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `archived_transportations_employees` (
-  `employe_id` int(11) DEFAULT NULL,
-  `achived_transportation_id` int(11) DEFAULT NULL
+  `employee_id` int(11) DEFAULT NULL,
+  `archived_transportation_id` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -190,7 +190,7 @@ CREATE TABLE `employees` (
   `role_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,6 +199,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+INSERT INTO `employees` VALUES (1,'Honza','Sveřepý','sverepy@tm.cz','sverepy',1),(2,'Tomáš','Marný','marny@tm.cz','marny',2),(3,'Pepa','Jožin','jozin@tm.cz','jozin',7);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,7 +211,7 @@ DROP TABLE IF EXISTS `employees_trains`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employees_trains` (
-  `employe_id` int(11) DEFAULT NULL,
+  `employee_id` int(11) DEFAULT NULL,
   `train_id` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -552,4 +553,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-20 23:20:21
+-- Dump completed on 2010-12-20 23:58:35
