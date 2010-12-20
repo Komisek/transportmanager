@@ -11,9 +11,9 @@
 			<?php echo $this->Html->link($path['Station']['name'], array('controller' => 'stations', 'action' => 'view', $path['Station']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Next Id'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Next'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $path['Path']['next_id']; ?>
+			<?php echo $this->Html->link($path['Next']['name'], array('controller' => 'stations', 'action' => 'view', $path['Next']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Lft'); ?></dt>
@@ -24,6 +24,11 @@
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rght'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $path['Path']['rght']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Parent Path'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $this->Html->link($path['ParentPath']['id'], array('controller' => 'paths', 'action' => 'view', $path['ParentPath']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -37,6 +42,8 @@
 		<li><?php echo $this->Html->link(__('New Path', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Stations', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Station', true), array('controller' => 'stations', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Paths', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Parent Path', true), array('controller' => 'paths', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Archived Transportations', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Archived Transportation', true), array('controller' => 'archived_transportations', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
@@ -55,6 +62,8 @@
 		<th><?php __('Start Station Id'); ?></th>
 		<th><?php __('End Station Id'); ?></th>
 		<th><?php __('Datum Cas'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -73,6 +82,8 @@
 			<td><?php echo $archivedTransportation['start_station_id'];?></td>
 			<td><?php echo $archivedTransportation['end_station_id'];?></td>
 			<td><?php echo $archivedTransportation['datum_cas'];?></td>
+			<td><?php echo $archivedTransportation['created'];?></td>
+			<td><?php echo $archivedTransportation['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'archived_transportations', 'action' => 'view', $archivedTransportation['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'archived_transportations', 'action' => 'edit', $archivedTransportation['id'])); ?>
@@ -90,6 +101,50 @@
 	</div>
 </div>
 <div class="related">
+	<h3><?php __('Related Paths');?></h3>
+	<?php if (!empty($path['ChildPath'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('Station Id'); ?></th>
+		<th><?php __('Next Id'); ?></th>
+		<th><?php __('Lft'); ?></th>
+		<th><?php __('Rght'); ?></th>
+		<th><?php __('Parent Id'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($path['ChildPath'] as $childPath):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $childPath['id'];?></td>
+			<td><?php echo $childPath['station_id'];?></td>
+			<td><?php echo $childPath['next_id'];?></td>
+			<td><?php echo $childPath['lft'];?></td>
+			<td><?php echo $childPath['rght'];?></td>
+			<td><?php echo $childPath['parent_id'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'paths', 'action' => 'view', $childPath['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'paths', 'action' => 'edit', $childPath['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'paths', 'action' => 'delete', $childPath['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $childPath['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Child Path', true), array('controller' => 'paths', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
 	<h3><?php __('Related Routes');?></h3>
 	<?php if (!empty($path['Route'])):?>
 	<table cellpadding = "0" cellspacing = "0">
@@ -102,6 +157,8 @@
 		<th><?php __('Train Id'); ?></th>
 		<th><?php __('Path Id'); ?></th>
 		<th><?php __('Stav Schvaleni'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -121,6 +178,8 @@
 			<td><?php echo $route['train_id'];?></td>
 			<td><?php echo $route['path_id'];?></td>
 			<td><?php echo $route['stav_schvaleni'];?></td>
+			<td><?php echo $route['created'];?></td>
+			<td><?php echo $route['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'routes', 'action' => 'view', $route['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'routes', 'action' => 'edit', $route['id'])); ?>

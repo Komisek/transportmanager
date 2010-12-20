@@ -547,6 +547,11 @@ form input[type="radio"] {
                 color: #665252;
                 }
 
+.attention, .information, .success, .error {
+                background-repeat: no-repeat;
+                padding: 5px 20px 5px 20px;
+}
+
 .notification div {
                 display:block;
                 font-style:normal;

@@ -64,9 +64,13 @@ class MenuHelper extends AppHelper
         //pokud je aktuální URL dítětem předávaného URL (v menu) tak vrátím true, jinak false
 
         $parents = array(
-            '/admin/users' => array('/admin/custom_user_fields', '/admin/custom_user_fields/add', '/admin/roles'),
             '/admin/web_settings' => array('/admin/acos'),
-            '/admin/contents' => array('/admin/events', '/admin/news', '/admin/categories', '/admin/texts', '/admin/upload_files'),
+            '/transportations' => array('/orders', '/trains', '/routes'),
+            '/routes' => array('/stations', '/paths'),
+            '/employees' => array('/employees', '/employees/engine-drivers-index'),
+            '/railcars' => array('/locomotives', 'cargo_wagons'),
+            '/settings' => array('/users/change_password'),
+            'web_settings' => array('acos')
         );
         $tmp = $this->url();
         $tmp = explode('/', $tmp);

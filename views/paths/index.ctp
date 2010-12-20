@@ -7,6 +7,7 @@
 			<th><?php echo $this->Paginator->sort('next_id');?></th>
 			<th><?php echo $this->Paginator->sort('lft');?></th>
 			<th><?php echo $this->Paginator->sort('rght');?></th>
+			<th><?php echo $this->Paginator->sort('parent_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -22,9 +23,14 @@
 		<td>
 			<?php echo $this->Html->link($path['Station']['name'], array('controller' => 'stations', 'action' => 'view', $path['Station']['id'])); ?>
 		</td>
-		<td><?php echo $path['Path']['next_id']; ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($path['Next']['name'], array('controller' => 'stations', 'action' => 'view', $path['Next']['id'])); ?>
+		</td>
 		<td><?php echo $path['Path']['lft']; ?>&nbsp;</td>
 		<td><?php echo $path['Path']['rght']; ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($path['ParentPath']['id'], array('controller' => 'paths', 'action' => 'view', $path['ParentPath']['id'])); ?>
+		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $path['Path']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $path['Path']['id'])); ?>
@@ -53,6 +59,8 @@
 		<li><?php echo $this->Html->link(__('New Path', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Stations', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Station', true), array('controller' => 'stations', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Paths', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Parent Path', true), array('controller' => 'paths', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Archived Transportations', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Archived Transportation', true), array('controller' => 'archived_transportations', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>

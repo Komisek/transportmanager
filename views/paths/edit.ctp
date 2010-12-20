@@ -8,6 +8,7 @@
 		echo $this->Form->input('next_id');
 		echo $this->Form->input('lft');
 		echo $this->Form->input('rght');
+		echo $this->Form->input('parent_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -20,6 +21,8 @@
 		<li><?php echo $this->Html->link(__('List Paths', true), array('action' => 'index'));?></li>
 		<li><?php echo $this->Html->link(__('List Stations', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Station', true), array('controller' => 'stations', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Paths', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Parent Path', true), array('controller' => 'paths', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Archived Transportations', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Archived Transportation', true), array('controller' => 'archived_transportations', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
