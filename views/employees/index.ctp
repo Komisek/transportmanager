@@ -5,6 +5,8 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('surname');?></th>
+			<th><?php echo $this->Paginator->sort('email');?></th>
+			<th><?php echo $this->Paginator->sort('passwd');?></th>
 			<th><?php echo $this->Paginator->sort('role_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -20,6 +22,8 @@
 		<td><?php echo $employee['Employee']['id']; ?>&nbsp;</td>
 		<td><?php echo $employee['Employee']['name']; ?>&nbsp;</td>
 		<td><?php echo $employee['Employee']['surname']; ?>&nbsp;</td>
+		<td><?php echo $employee['Employee']['email']; ?>&nbsp;</td>
+		<td><?php echo $employee['Employee']['passwd']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($employee['Role']['name'], array('controller' => 'roles', 'action' => 'view', $employee['Role']['id'])); ?>
 		</td>

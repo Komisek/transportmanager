@@ -6,6 +6,8 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('surname');
+		echo $this->Form->input('email');
+		echo $this->Form->input('passwd');
 		echo $this->Form->input('role_id');
 		echo $this->Form->input('ArchivedTransportation');
 		echo $this->Form->input('Train');
