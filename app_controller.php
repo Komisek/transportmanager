@@ -46,7 +46,7 @@ class AppController extends Controller {
        //Fetching All params
        $settings_array = $settings->find('all');
        foreach($settings_array as $key=>$value){
-          Configure::write("__".$value['Setting']['key'], $value);
+          Configure::write("__".$value['Setting']['key'], $value['Setting']['pair']);
        }
     }
 }
