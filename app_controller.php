@@ -31,4 +31,6 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {
+    //var $components = array('Acl', 'Auth', 'Session');
+    var $helpers = array('Form', 'Html', 'Session', 'Menu', 'Time', 'SimplaForm', 'SimplaTable', 'SimplaBoxes');
 }
