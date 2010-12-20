@@ -41,6 +41,16 @@
 			<?php echo $route['Route']['stav_schvaleni']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $route['Route']['created']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $route['Route']['modified']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

@@ -57,8 +57,6 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Path Id'); ?></th>
-		<th><?php __('Locomotive Id'); ?></th>
-		<th><?php __('Engine Driver Id'); ?></th>
 		<th><?php __('Start Station Id'); ?></th>
 		<th><?php __('End Station Id'); ?></th>
 		<th><?php __('Datum Cas'); ?></th>
@@ -77,8 +75,6 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $archivedTransportation['id'];?></td>
 			<td><?php echo $archivedTransportation['path_id'];?></td>
-			<td><?php echo $archivedTransportation['locomotive_id'];?></td>
-			<td><?php echo $archivedTransportation['engine_driver_id'];?></td>
 			<td><?php echo $archivedTransportation['start_station_id'];?></td>
 			<td><?php echo $archivedTransportation['end_station_id'];?></td>
 			<td><?php echo $archivedTransportation['datum_cas'];?></td>

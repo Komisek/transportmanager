@@ -37,6 +37,8 @@
 		<th><?php __('Train Id'); ?></th>
 		<th><?php __('Path Id'); ?></th>
 		<th><?php __('Stav Schvaleni'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -56,6 +58,8 @@
 			<td><?php echo $route['train_id'];?></td>
 			<td><?php echo $route['path_id'];?></td>
 			<td><?php echo $route['stav_schvaleni'];?></td>
+			<td><?php echo $route['created'];?></td>
+			<td><?php echo $route['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'routes', 'action' => 'view', $route['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'routes', 'action' => 'edit', $route['id'])); ?>

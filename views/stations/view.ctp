@@ -58,6 +58,7 @@
 		<th><?php __('Next Id'); ?></th>
 		<th><?php __('Lft'); ?></th>
 		<th><?php __('Rght'); ?></th>
+		<th><?php __('Parent Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -74,6 +75,7 @@
 			<td><?php echo $path['next_id'];?></td>
 			<td><?php echo $path['lft'];?></td>
 			<td><?php echo $path['rght'];?></td>
+			<td><?php echo $path['parent_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'paths', 'action' => 'view', $path['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'paths', 'action' => 'edit', $path['id'])); ?>
@@ -183,6 +185,8 @@
 		<th><?php __('Train Id'); ?></th>
 		<th><?php __('Path Id'); ?></th>
 		<th><?php __('Stav Schvaleni'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -202,6 +206,8 @@
 			<td><?php echo $startStation['train_id'];?></td>
 			<td><?php echo $startStation['path_id'];?></td>
 			<td><?php echo $startStation['stav_schvaleni'];?></td>
+			<td><?php echo $startStation['created'];?></td>
+			<td><?php echo $startStation['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'routes', 'action' => 'view', $startStation['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'routes', 'action' => 'edit', $startStation['id'])); ?>
@@ -231,6 +237,8 @@
 		<th><?php __('Train Id'); ?></th>
 		<th><?php __('Path Id'); ?></th>
 		<th><?php __('Stav Schvaleni'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -250,6 +258,8 @@
 			<td><?php echo $endStation['train_id'];?></td>
 			<td><?php echo $endStation['path_id'];?></td>
 			<td><?php echo $endStation['stav_schvaleni'];?></td>
+			<td><?php echo $endStation['created'];?></td>
+			<td><?php echo $endStation['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'routes', 'action' => 'view', $endStation['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'routes', 'action' => 'edit', $endStation['id'])); ?>

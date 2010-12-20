@@ -11,16 +11,6 @@
 			<?php echo $archivedTransportation['ArchivedTransportation']['path_id']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Locomotive Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $archivedTransportation['ArchivedTransportation']['locomotive_id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Engine Driver Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $archivedTransportation['ArchivedTransportation']['engine_driver_id']; ?>
-			&nbsp;
-		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Start Station Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $archivedTransportation['ArchivedTransportation']['start_station_id']; ?>
@@ -34,6 +24,16 @@
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Datum Cas'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $archivedTransportation['ArchivedTransportation']['datum_cas']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $archivedTransportation['ArchivedTransportation']['created']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $archivedTransportation['ArchivedTransportation']['modified']; ?>
 			&nbsp;
 		</dd>
 	</dl>

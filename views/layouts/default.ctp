@@ -70,7 +70,7 @@
                                 <?php echo $menu->link(__('Zaměstnanci', true), array('admin' => false, 'controller' => 'employees'), array('toplink' => true));?>
                                     <ul>
                                             <li><?php echo $menu->link(__('Zobraz zaměstnance', true), array('admin' => false, 'controller' => 'employees'));?></li>
-                                            <li><?php echo $menu->link(__('Zobraz strojvůďce', true), array('admin' => false, 'controller' => 'employees', 'action' => 'engine-drivers-index'));?></li>
+                                            <li><?php echo $menu->link(__('Zobraz strojvůdce', true), array('admin' => false, 'controller' => 'employees', 'action' => 'engine-drivers-index'));?></li>
                                             <li><?php echo $menu->link(__('Zobraz uživatelské role', true), array('admin' => false, 'controller' => 'roles'));?></li>
                                     </ul>
                             </li>

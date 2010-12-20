@@ -5,8 +5,6 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('path_id');
-		echo $this->Form->input('locomotive_id');
-		echo $this->Form->input('engine_driver_id');
 		echo $this->Form->input('start_station_id');
 		echo $this->Form->input('end_station_id');
 		echo $this->Form->input('datum_cas');

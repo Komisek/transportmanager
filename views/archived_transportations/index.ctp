@@ -4,11 +4,11 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('path_id');?></th>
-			<th><?php echo $this->Paginator->sort('locomotive_id');?></th>
-			<th><?php echo $this->Paginator->sort('engine_driver_id');?></th>
 			<th><?php echo $this->Paginator->sort('start_station_id');?></th>
 			<th><?php echo $this->Paginator->sort('end_station_id');?></th>
 			<th><?php echo $this->Paginator->sort('datum_cas');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -22,11 +22,11 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $archivedTransportation['ArchivedTransportation']['id']; ?>&nbsp;</td>
 		<td><?php echo $archivedTransportation['ArchivedTransportation']['path_id']; ?>&nbsp;</td>
-		<td><?php echo $archivedTransportation['ArchivedTransportation']['locomotive_id']; ?>&nbsp;</td>
-		<td><?php echo $archivedTransportation['ArchivedTransportation']['engine_driver_id']; ?>&nbsp;</td>
 		<td><?php echo $archivedTransportation['ArchivedTransportation']['start_station_id']; ?>&nbsp;</td>
 		<td><?php echo $archivedTransportation['ArchivedTransportation']['end_station_id']; ?>&nbsp;</td>
 		<td><?php echo $archivedTransportation['ArchivedTransportation']['datum_cas']; ?>&nbsp;</td>
+		<td><?php echo $archivedTransportation['ArchivedTransportation']['created']; ?>&nbsp;</td>
+		<td><?php echo $archivedTransportation['ArchivedTransportation']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $archivedTransportation['ArchivedTransportation']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $archivedTransportation['ArchivedTransportation']['id'])); ?>

@@ -1,15 +1,34 @@
 <?php
 class Train extends AppModel {
 	var $name = 'Train';
-	var $displayField = 'id';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-        var $hasMany = array(
-                'Route' => array(
-                        'className' => 'Route',
-                        'foreignKey' => 'route_id'
-                )
-        );
+	var $belongsTo = array(
+		'Route' => array(
+			'className' => 'Route',
+			'foreignKey' => 'route_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+	);
+
+	var $hasMany = array(
+		'Route' => array(
+			'className' => 'Route',
+			'foreignKey' => 'train_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+
 
 	var $hasAndBelongsToMany = array(
 		'CargoWagon' => array(
@@ -27,7 +46,7 @@ class Train extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		),
-		'Employe' => array(
+		'Employee' => array(
 			'className' => 'Employee',
 			'joinTable' => 'employees_trains',
 			'foreignKey' => 'train_id',

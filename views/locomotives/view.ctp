@@ -178,11 +178,11 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Path Id'); ?></th>
-		<th><?php __('Locomotive Id'); ?></th>
-		<th><?php __('Engine Driver Id'); ?></th>
 		<th><?php __('Start Station Id'); ?></th>
 		<th><?php __('End Station Id'); ?></th>
 		<th><?php __('Datum Cas'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -196,11 +196,11 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $archivedTransportation['id'];?></td>
 			<td><?php echo $archivedTransportation['path_id'];?></td>
-			<td><?php echo $archivedTransportation['locomotive_id'];?></td>
-			<td><?php echo $archivedTransportation['engine_driver_id'];?></td>
 			<td><?php echo $archivedTransportation['start_station_id'];?></td>
 			<td><?php echo $archivedTransportation['end_station_id'];?></td>
 			<td><?php echo $archivedTransportation['datum_cas'];?></td>
+			<td><?php echo $archivedTransportation['created'];?></td>
+			<td><?php echo $archivedTransportation['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'archived_transportations', 'action' => 'view', $archivedTransportation['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'archived_transportations', 'action' => 'edit', $archivedTransportation['id'])); ?>
@@ -224,9 +224,9 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Route Id'); ?></th>
-		<th><?php __('Locomotive Id'); ?></th>
-		<th><?php __('Engine Driver Id'); ?></th>
 		<th><?php __('Stav Rezervace'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -240,9 +240,9 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $train['id'];?></td>
 			<td><?php echo $train['route_id'];?></td>
-			<td><?php echo $train['locomotive_id'];?></td>
-			<td><?php echo $train['engine_driver_id'];?></td>
 			<td><?php echo $train['stav_rezervace'];?></td>
+			<td><?php echo $train['created'];?></td>
+			<td><?php echo $train['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'trains', 'action' => 'view', $train['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'trains', 'action' => 'edit', $train['id'])); ?>

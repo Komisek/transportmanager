@@ -133,9 +133,9 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Route Id'); ?></th>
-		<th><?php __('Locomotive Id'); ?></th>
-		<th><?php __('Engine Driver Id'); ?></th>
 		<th><?php __('Stav Rezervace'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -149,9 +149,9 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $train['id'];?></td>
 			<td><?php echo $train['route_id'];?></td>
-			<td><?php echo $train['locomotive_id'];?></td>
-			<td><?php echo $train['engine_driver_id'];?></td>
 			<td><?php echo $train['stav_rezervace'];?></td>
+			<td><?php echo $train['created'];?></td>
+			<td><?php echo $train['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'trains', 'action' => 'view', $train['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'trains', 'action' => 'edit', $train['id'])); ?>

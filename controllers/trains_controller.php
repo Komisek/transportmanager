@@ -26,10 +26,11 @@ class TrainsController extends AppController {
 				$this->Session->setFlash(__('The train could not be saved. Please, try again.', true));
 			}
 		}
+		$routes = $this->Train->Route->find('list');
 		$cargoWagons = $this->Train->CargoWagon->find('list');
-		$employes = $this->Train->Employe->find('list');
+		$employees = $this->Train->Employee->find('list');
 		$locomotives = $this->Train->Locomotive->find('list');
-		$this->set(compact('cargoWagons', 'employes', 'locomotives'));
+		$this->set(compact('routes', 'cargoWagons', 'employees', 'locomotives'));
 	}
 
 	function edit($id = null) {
@@ -48,10 +49,11 @@ class TrainsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Train->read(null, $id);
 		}
+		$routes = $this->Train->Route->find('list');
 		$cargoWagons = $this->Train->CargoWagon->find('list');
-		$employes = $this->Train->Employe->find('list');
+		$employees = $this->Train->Employee->find('list');
 		$locomotives = $this->Train->Locomotive->find('list');
-		$this->set(compact('cargoWagons', 'employes', 'locomotives'));
+		$this->set(compact('routes', 'cargoWagons', 'employees', 'locomotives'));
 	}
 
 	function delete($id = null) {
