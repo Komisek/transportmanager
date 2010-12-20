@@ -33,4 +33,20 @@
 class AppController extends Controller {
     //var $components = array('Acl', 'Auth', 'Session');
     var $helpers = array('Form', 'Html', 'Session', 'Menu', 'Time', 'SimplaForm', 'SimplaTable', 'SimplaBoxes');
+
+    function beforeFilter()
+    {
+        $this->fetchSettings();
+    }
+
+    function fetchSettings(){
+       //Loading model on the fly
+       App::import('Model', 'Setting');
+       $settings = new Setting();
+       //Fetching All params
+       $settings_array = $settings->find('all');
+       foreach($settings_array as $key=>$value){
+          Configure::write("__".$value['Setting']['key'], $value);
+       }
+    }
 }

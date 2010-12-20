@@ -69,8 +69,8 @@ class MenuHelper extends AppHelper
             '/routes' => array('/stations', '/paths'),
             '/employees' => array('/employees', '/employees/engine-drivers-index', '/roles'),
             '/railcars' => array('/locomotives', 'cargo_wagons'),
-            '/settings' => array('/users/change_password'),
-            '/web_settings' => array('acos')
+            '/user/settings' => array('/users/change_password'),
+            '/settings' => array('/settings' ,'/acos')
         );
         $tmp = $this->url();
         $tmp = explode('/', $tmp);

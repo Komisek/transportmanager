@@ -88,15 +88,16 @@
                             </li>
 
                             <li>
-                                <?php echo $menu->link(__('Uživatelská nastavení', true), array('admin' => false, 'controller' => 'settings'), array('toplink' => true));?>
+                                <?php echo $menu->link(__('Uživatelská nastavení', true), array('admin' => false, 'controller' => 'user', 'action' => 'settings'), array('toplink' => true));?>
                                     <ul>
                                         <li><?php echo $menu->link(__('Změna hesla', true), array('admin' => false, 'controller' => 'users', 'action' => 'change_password'));?></li>
                                     </ul>
                             </li>
 
                             <li>
-                                <?php echo $menu->link(__('Nastavení aplikace', true), array('admin' => false, 'controller' => 'web_settings'), array('toplink' => true));?>
+                                <?php echo $menu->link(__('Nastavení aplikace', true), array('admin' => false, 'controller' => 'settings'), array('toplink' => true));?>
                                     <ul>
+                                        <li><?php echo $menu->link(__('Uprav nastavení', true), array('admin' => false, 'controller' => 'settings'));?></li>
                                         <li><?php echo $menu->link(__('Uprav ACO', true), array('admin' => false, 'controller' => 'acos'));?></li>
                                     </ul>
                             </li>
