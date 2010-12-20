@@ -8,6 +8,16 @@ class EmployeesController extends AppController {
 		$this->set('employees', $this->paginate());
 	}
 
+        function engine_drivers_index() {
+		$this->Employee->recursive = 0;
+                $this->paginate = array(
+                    'Employee' => array(
+                        'conditions' => array('Employee.role_id' => Configure::read('__engine_driver_role'))
+                    )
+                );
+		$this->set('employees', $this->paginate('Employee'));
+	}
+
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid employee', true));
