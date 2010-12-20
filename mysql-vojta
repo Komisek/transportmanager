@@ -1,0 +1,25 @@
+#!/bin/sh
+pr_PATH=/home/bazil/cakeweb/transportmanager
+pr_USER=transportmanager
+pr_PASS=transportmanager
+pr_DB=transportmanager
+pr_FILE=vojta-mysql-dump.sql
+
+# Refresh the SQL schema file for inclusion within the git commit
+
+# If something fails, exit with status other than 0
+set -e
+
+# first, remove our original schema
+cd $pr_PATH
+rm -f $pr_FILE
+
+# generate a new schema
+mysqldump --user=$pr_USER --pass=$pr_PASS $pr_DB > $pr_FILE
+
+# Add the schema to the next commit
+cd $pr_PATH
+git add $pr_FILE
+
+# Exit success
+exit 0
