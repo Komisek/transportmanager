@@ -80,6 +80,7 @@
                                     <ul>
                                             <li><?php echo $menu->link(__('Zobraz hnací vozidla', true), array('admin' => false, 'controller' => 'locomotives'));?></li>
                                             <li><?php echo $menu->link(__('Zobraz nákladní vozy', true), array('admin' => false, 'controller' => 'cargo_wagons'));?></li>
+                                            <li><?php echo $menu->link(__('Zobraz vozové řady', true), array('admin' => false, 'controller' => 'cargo_series'));?></li>
                                     </ul>
                             </li>
 
