@@ -181,6 +181,8 @@
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Name'); ?></th>
 		<th><?php __('Surname'); ?></th>
+		<th><?php __('Email'); ?></th>
+		<th><?php __('Passwd'); ?></th>
 		<th><?php __('Role Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -196,6 +198,8 @@
 			<td><?php echo $employee['id'];?></td>
 			<td><?php echo $employee['name'];?></td>
 			<td><?php echo $employee['surname'];?></td>
+			<td><?php echo $employee['email'];?></td>
+			<td><?php echo $employee['passwd'];?></td>
 			<td><?php echo $employee['role_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'employees', 'action' => 'view', $employee['id'])); ?>
