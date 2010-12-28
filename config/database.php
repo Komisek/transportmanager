@@ -30,6 +30,7 @@ switch($_SERVER['HTTP_HOST'])
                                     'login' => 'komisek',
                                     'password' => 'komisek',
                                     'database' => 'TransportManager',
+                                    'encoding' => 'utf8',
                             );
                     }
                 break;

@@ -12,7 +12,7 @@ class EmployeesController extends AppController {
 		$this->Employee->recursive = 0;
                 $this->paginate = array(
                     'Employee' => array(
-                        'conditions' => array('Employee.role_id' => Configure::read('__engine_driver_role'))
+                        'conditions' => array('Employee.role_id' => 7)
                     )
                 );
 		$this->set('employees', $this->paginate('Employee'));

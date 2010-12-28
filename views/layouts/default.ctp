@@ -70,17 +70,17 @@
                                 <?php echo $menu->link(__('Zaměstnanci', true), array('admin' => false, 'controller' => 'employees'), array('toplink' => true));?>
                                     <ul>
                                             <li><?php echo $menu->link(__('Zobraz zaměstnance', true), array('admin' => false, 'controller' => 'employees', 'action' => 'index'));?></li>
-                                            <li><?php echo $menu->link(__('Zobraz strojvůdce', true), array('admin' => false, 'controller' => 'employees', 'action' => 'engine_drivers_index'));?></li>
                                             <li><?php echo $menu->link(__('Zobraz uživatelské role', true), array('admin' => false, 'controller' => 'roles'));?></li>
                                     </ul>
                             </li>
 
                             <li>
-                                <?php echo $menu->link(__('Vozy', true), array('admin' => false, 'controller' => 'railcars'), array('toplink' => true));?>
+                                <?php echo $menu->link(__('Zdroje', true), array('admin' => false, 'controller' => 'sources'), array('toplink' => true));?>
                                     <ul>
+                                            <li><?php echo $menu->link(__('Zobraz strojvůdce', true), array('admin' => false, 'controller' => 'employees', 'action' => 'engine_drivers_index'));?></li>
                                             <li><?php echo $menu->link(__('Zobraz hnací vozidla', true), array('admin' => false, 'controller' => 'locomotives'));?></li>
                                             <li><?php echo $menu->link(__('Zobraz nákladní vozy', true), array('admin' => false, 'controller' => 'cargo_wagons'));?></li>
-                                            <li><?php echo $menu->link(__('Zobraz vozové řady', true), array('admin' => false, 'controller' => 'cargo_series'));?></li>
+                                            <li><?php echo $menu->link(__('Zobraz vozové řady', true), array('admin' => false, 'controller' => 'wagon_series'));?></li>
                                     </ul>
                             </li>
 

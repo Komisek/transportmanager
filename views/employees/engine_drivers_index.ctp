@@ -6,7 +6,6 @@
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('surname');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
-			<th><?php echo $this->Paginator->sort('passwd');?></th>
 			<th><?php echo $this->Paginator->sort('role_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>

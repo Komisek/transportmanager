@@ -3,11 +3,12 @@
 	<fieldset>
  		<legend><?php __('Add Employee'); ?></legend>
 	<?php
-		echo $this->Form->input('name');
+		echo $this->Form->input('role_id');
+                echo $this->Html->link(__('New Role', true), array('controller' => 'roles', 'action' => 'add'));
+                echo $this->Form->input('name');
 		echo $this->Form->input('surname');
 		echo $this->Form->input('email');
 		echo $this->Form->input('passwd');
-		echo $this->Form->input('role_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
