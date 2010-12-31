@@ -2,7 +2,7 @@
 	<h2><?php __('Trains');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
+                        <th><?php echo $this->Paginator->sort('Číslo vlaku', 'id');?></th>
 			<th><?php echo $this->Paginator->sort('route_id');?></th>
 			<th><?php echo $this->Paginator->sort('stav_rezervace');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
@@ -26,8 +26,8 @@
 		<td><?php echo $train['Train']['created']; ?>&nbsp;</td>
 		<td><?php echo $train['Train']['modified']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $train['Train']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $train['Train']['id'])); ?>
+			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $train['Train']['id'])); ?><br/>
+			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $train['Train']['id'])); ?><br/>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $train['Train']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $train['Train']['id'])); ?>
 		</td>
 	</tr>

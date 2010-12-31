@@ -1,5 +1,5 @@
-<div class="employees index">
-	<h2><?php __('Employees');?></h2>
+<div class="engine_driver_index">
+	<h2><?php __('Strojvůdci');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -22,7 +22,6 @@
 		<td><?php echo $employee['Employee']['name']; ?>&nbsp;</td>
 		<td><?php echo $employee['Employee']['surname']; ?>&nbsp;</td>
 		<td><?php echo $employee['Employee']['email']; ?>&nbsp;</td>
-		<td><?php echo $employee['Employee']['passwd']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($employee['Role']['name'], array('controller' => 'roles', 'action' => 'view', $employee['Role']['id'])); ?>
 		</td>

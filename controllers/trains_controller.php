@@ -3,7 +3,7 @@ class TrainsController extends AppController {
 
 	var $name = 'Trains';
 
-/*        function index() {
+        function index() {
 		$this->Train->recursive = 0;
 		$this->set('trains', $this->paginate());
 	}
@@ -27,11 +27,11 @@ class TrainsController extends AppController {
 			}
 		}
 		$routes = $this->Train->Route->find('list');
-                $cw = $this->Train->CargoWagon->find('list');
+                $cargoWagons = $this->Train->CargoWagon->find('list');
        		$locomotives = $this->Train->Locomotive->find('list');
 		$employees = $this->Train->Employee->find('list',  array(
                                                           'conditions' => array('role_id' => 7 )));
-                $this->set(compact('routes', 'cw', 'locomotives', 'employees'));
+                $this->set(compact('routes', 'cargoWagons', 'locomotives', 'employees'));
 	}
 
 	function edit($id = null) {
@@ -51,11 +51,11 @@ class TrainsController extends AppController {
 			$this->data = $this->Train->read(null, $id);
 		}
 		$routes = $this->Train->Route->find('list');
-                $cargowagons = $this->Train->CargoWagon->find('list');
+                $cargoWagons = $this->Train->CargoWagon->find('list');
        		$locomotives = $this->Train->Locomotive->find('list');
 		$employees = $this->Train->Employee->find('list',  array(
                                                           'conditions' => array('role_id' => 7 )));
-                $this->set(compact('routes', 'cargowagons', 'locomotives', 'employees'));
+                $this->set(compact('routes', 'cargoWagons', 'locomotives', 'employees'));
 	}
 
 	function delete($id = null) {
@@ -69,7 +69,7 @@ class TrainsController extends AppController {
 		}
 		$this->Session->setFlash(__('Employee was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}*/
-        var $scaffold;
+	}
+//        var $scaffold;
 }
 ?>
