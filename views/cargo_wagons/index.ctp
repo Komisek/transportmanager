@@ -47,10 +47,10 @@
 <div class="actions">
 	<h3><?php __('Další možnosti'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Přidej nákladní vůz', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Zobraz vozové řady', true), array('controller' => 'wagon_series', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Přidej vozovou řadu', true), array('controller' => 'wagon_series', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Zobraz vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Přidej vlakovou soupravu', true), array('controller' => 'trains', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat nákladní vůz', true), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Zobrazit vozové řady', true), array('controller' => 'wagon_series', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat vozovou řadu', true), array('controller' => 'wagon_series', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat vlakovou soupravu', true), array('controller' => 'trains', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

@@ -1,7 +1,7 @@
 <div class="locomotives form">
 <?php echo $this->Form->create('Locomotive');?>
 	<fieldset>
- 		<legend><?php __('Add Locomotive'); ?></legend>
+ 		<legend><?php __('Přidání hnacího vozu'); ?></legend>
 	<?php
 		echo $this->Form->input('brzda_parkovaci_druh');
 		echo $this->Form->input('brzda_primocara_druh');
@@ -37,16 +37,14 @@
 		echo $this->Form->input('Train');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('OK', true));?>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Další úpravy'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Locomotives', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Archived Transportations', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archived Transportation', true), array('controller' => 'archived_transportations', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Trains', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Train', true), array('controller' => 'trains', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit hnací vozy', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit historii přepravy', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

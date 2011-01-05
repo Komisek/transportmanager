@@ -1,5 +1,5 @@
 <div class="locomotives view">
-<h2><?php  __('Locomotive');?></h2>
+<h2><?php  __('Hnací vůz');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -159,20 +159,18 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Locomotive', true), array('action' => 'edit', $locomotive['Locomotive']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Locomotive', true), array('action' => 'delete', $locomotive['Locomotive']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $locomotive['Locomotive']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Locomotives', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Locomotive', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Archived Transportations', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archived Transportation', true), array('controller' => 'archived_transportations', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Trains', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Train', true), array('controller' => 'trains', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Upravit hnací vůz', true), array('action' => 'edit', $locomotive['Locomotive']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Smazac hnací vůz', true), array('action' => 'delete', $locomotive['Locomotive']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $locomotive['Locomotive']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit hnací vozy', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat hnací vůz', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit historii přepravy', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">
-	<h3><?php __('Related Archived Transportations');?></h3>
+	<h3><?php __('Historie hnacího vozu');?></h3>
 	<?php if (!empty($locomotive['ArchivedTransportation'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -218,7 +216,7 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Trains');?></h3>
+	<h3><?php __('Přiřazené  vlakové soupravy');?></h3>
 	<?php if (!empty($locomotive['Train'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>

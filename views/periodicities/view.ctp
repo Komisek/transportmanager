@@ -1,5 +1,5 @@
 <div class="periodicities view">
-<h2><?php  __('Periodicity');?></h2>
+<h2><?php  __('Periodicita');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -14,18 +14,17 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Periodicity', true), array('action' => 'edit', $periodicity['Periodicity']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Periodicity', true), array('action' => 'delete', $periodicity['Periodicity']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $periodicity['Periodicity']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Periodicities', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Periodicity', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $periodicity['Periodicity']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $periodicity['Periodicity']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $periodicity['Periodicity']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit periodicity', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat periodicitu', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit trasy', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">
-	<h3><?php __('Related Routes');?></h3>
+	<h3><?php __('Přiřazené trasy');?></h3>
 	<?php if (!empty($periodicity['Route'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -69,10 +68,4 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>

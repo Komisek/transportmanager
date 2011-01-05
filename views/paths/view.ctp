@@ -1,5 +1,5 @@
 <div class="paths view">
-<h2><?php  __('Path');?></h2>
+<h2><?php  __('Cesta');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -34,20 +34,14 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Path', true), array('action' => 'edit', $path['Path']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Path', true), array('action' => 'delete', $path['Path']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $path['Path']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Paths', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Path', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Stations', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Station', true), array('controller' => 'stations', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Paths', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Parent Path', true), array('controller' => 'paths', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Archived Transportations', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archived Transportation', true), array('controller' => 'archived_transportations', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Úpravit', true), array('action' => 'edit', $path['Path']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $path['Path']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $path['Path']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit cesty', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit stanice', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
+        	<li><?php echo $this->Html->link(__('Zobrazit historii prepravy', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit trasy', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">

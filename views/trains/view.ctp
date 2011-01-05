@@ -1,11 +1,6 @@
 <div class="trains view">
-<h2><?php  __('Train');?></h2>
+<h2><?php  __('Vlaková souprava');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $train['Train']['id']; ?>
-			&nbsp;
-		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Route'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($train['Route']['id'], array('controller' => 'routes', 'action' => 'view', $train['Route']['id'])); ?>
@@ -29,24 +24,24 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Train', true), array('action' => 'edit', $train['Train']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Train', true), array('action' => 'delete', $train['Train']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $train['Train']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Trains', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Train', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cargo Wagons', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cargo Wagon', true), array('controller' => 'cargo_wagons', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Employees', true), array('controller' => 'employees', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employee', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Locomotives', true), array('controller' => 'locomotives', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Locomotive', true), array('controller' => 'locomotives', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Upravit vlakovou soupravu', true), array('action' => 'edit', $train['Train']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Smazat vlakovou soupravu', true), array('action' => 'delete', $train['Train']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $train['Train']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit vlakové soupravy', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat vlakovou soupravu', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit trasy', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat trasu', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit nákladní vozy', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat nákladní vůz', true), array('controller' => 'cargo_wagons', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit strojvůdce', true), array('controller' => 'employees', 'action' => 'engine_driver_index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat zaměstnance', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit hnací vozy', true), array('controller' => 'locomotives', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat hnací vůz', true), array('controller' => 'locomotives', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
-	<h3><?php __('Related Routes');?></h3>
+	<h3><?php __('Přiřazené trasy');?></h3>
 	<?php if (!empty($train['Route'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -82,23 +77,17 @@
 			<td><?php echo $route['created'];?></td>
 			<td><?php echo $route['modified'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'routes', 'action' => 'view', $route['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'routes', 'action' => 'edit', $route['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'routes', 'action' => 'delete', $route['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $route['id'])); ?>
+				<?php echo $this->Html->link(__('Detal', true), array('controller' => 'routes', 'action' => 'view', $route['id'])); ?>
+				<?php echo $this->Html->link(__('Upravit', true), array('controller' => 'routes', 'action' => 'edit', $route['id'])); ?>
+				<?php echo $this->Html->link(__('Smazat', true), array('controller' => 'routes', 'action' => 'delete', $route['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $route['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Cargo Wagons');?></h3>
+	<h3><?php __('Přiřazené nákladní vozy');?></h3>
 	<?php if (!empty($train['CargoWagon'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -158,23 +147,17 @@
 			<td><?php echo $cargoWagon['vlastni_hmotnost'];?></td>
 			<td><?php echo $cargoWagon['zdrze'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'cargo_wagons', 'action' => 'view', $cargoWagon['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'cargo_wagons', 'action' => 'edit', $cargoWagon['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'cargo_wagons', 'action' => 'delete', $cargoWagon['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $cargoWagon['id'])); ?>
+				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'cargo_wagons', 'action' => 'view', $cargoWagon['id'])); ?>
+				<?php echo $this->Html->link(__('Upravit', true), array('controller' => 'cargo_wagons', 'action' => 'edit', $cargoWagon['id'])); ?>
+				<?php echo $this->Html->link(__('Smazat', true), array('controller' => 'cargo_wagons', 'action' => 'delete', $cargoWagon['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $cargoWagon['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Cargo Wagon', true), array('controller' => 'cargo_wagons', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Employees');?></h3>
+	<h3><?php __('Přiřazení strojvůdci');?></h3>
 	<?php if (!empty($train['Employee'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -202,23 +185,17 @@
 			<td><?php echo $employee['passwd'];?></td>
 			<td><?php echo $employee['role_id'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'employees', 'action' => 'view', $employee['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'employees', 'action' => 'edit', $employee['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'employees', 'action' => 'delete', $employee['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employee['id'])); ?>
+				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'employees', 'action' => 'view', $employee['id'])); ?>
+				<?php echo $this->Html->link(__('Upravit', true), array('controller' => 'employees', 'action' => 'edit', $employee['id'])); ?>
+				<?php echo $this->Html->link(__('Smazat', true), array('controller' => 'employees', 'action' => 'delete', $employee['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employee['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Employee', true), array('controller' => 'employees', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Locomotives');?></h3>
+	<h3><?php __('Přiřazené hnací vozy');?></h3>
 	<?php if (!empty($train['Locomotive'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -296,18 +273,12 @@
 			<td><?php echo $locomotive['vyrobce'];?></td>
 			<td><?php echo $locomotive['vyrobni_cislo'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'locomotives', 'action' => 'view', $locomotive['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'locomotives', 'action' => 'edit', $locomotive['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'locomotives', 'action' => 'delete', $locomotive['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $locomotive['id'])); ?>
+				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'locomotives', 'action' => 'view', $locomotive['id'])); ?>
+				<?php echo $this->Html->link(__('Upravit', true), array('controller' => 'locomotives', 'action' => 'edit', $locomotive['id'])); ?>
+				<?php echo $this->Html->link(__('Smazat', true), array('controller' => 'locomotives', 'action' => 'delete', $locomotive['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $locomotive['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Locomotive', true), array('controller' => 'locomotives', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>

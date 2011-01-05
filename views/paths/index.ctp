@@ -1,5 +1,5 @@
 <div class="paths index">
-	<h2><?php __('Paths');?></h2>
+	<h2><?php __('Cesty');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -32,38 +32,33 @@
 			<?php echo $this->Html->link($path['ParentPath']['id'], array('controller' => 'paths', 'action' => 'view', $path['ParentPath']['id'])); ?>
 		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $path['Path']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $path['Path']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $path['Path']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $path['Path']['id'])); ?>
+			<?php echo $this->Html->link(__('Detail', true), array('action' => 'view', $path['Path']['id'])); ?>
+			<?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $path['Path']['id'])); ?>
+			<?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $path['Path']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $path['Path']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
 	<p>
-	<?php
+    <?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
+	'format' => __('Stánka %page% z %pages%, celkový počet záznamu %count%, zobrazeny záznamy %start% - %end%', true)
 	));
 	?>	</p>
 
 	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+		<?php echo $this->Paginator->prev('<< ' . __('předchozí', true), array(), null, array('class'=>'disabled'));?>
 	 | 	<?php echo $this->Paginator->numbers();?>
  |
-		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+		<?php echo $this->Paginator->next(__('další', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Path', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Stations', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Station', true), array('controller' => 'stations', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Paths', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Parent Path', true), array('controller' => 'paths', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Archived Transportations', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archived Transportation', true), array('controller' => 'archived_transportations', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat cestu', true), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Zobrazit stanice', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit historii přepravy', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit trasy', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

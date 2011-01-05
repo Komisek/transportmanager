@@ -1,5 +1,5 @@
 <div class="nearStations view">
-<h2><?php  __('Near Station');?></h2>
+<h2><?php  __('Okolní stanice');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -24,13 +24,12 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Near Station', true), array('action' => 'edit', $nearStation['NearStation']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Near Station', true), array('action' => 'delete', $nearStation['NearStation']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $nearStation['NearStation']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Near Stations', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Near Station', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Stations', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Station', true), array('controller' => 'stations', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $nearStation['NearStation']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $nearStation['NearStation']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $nearStation['NearStation']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit okolní stanice', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat okolní stanici', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit stanice', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

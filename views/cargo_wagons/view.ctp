@@ -1,5 +1,5 @@
 <div class="cargoWagons view">
-<h2><?php  __('Nákladní vůz');?></h2>
+<h2><?php  __('Nákladní vůz (detail)');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vozová řada'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -113,12 +113,12 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Upravit nákladní vůz', true), array('action' => 'edit', $cargoWagon['CargoWagon']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Smazat nákladní vůz', true), array('action' => 'delete', $cargoWagon['CargoWagon']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $cargoWagon['CargoWagon']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Zobraz nákladní vozy', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Přidej nákladní vůz', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Zobraz vozové řady', true), array('controller' => 'wagon_series', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Přidej vozovou řadu', true), array('controller' => 'wagon_series', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Zobraz vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Přidej vlakovou soupravu', true), array('controller' => 'trains', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit nákladní vozy', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat nákladní vůz', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit vozové řady', true), array('controller' => 'wagon_series', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat vozovou řadu', true), array('controller' => 'wagon_series', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat vlakovou soupravu', true), array('controller' => 'trains', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">

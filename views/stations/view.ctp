@@ -1,11 +1,6 @@
 <div class="stations view">
-<h2><?php  __('Station');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $station['Station']['id']; ?>
-			&nbsp;
-		</dd>
+<h2><?php  __('Stanice');?></h2>
+            <dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $station['Station']['name']; ?>
@@ -34,22 +29,21 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Station', true), array('action' => 'edit', $station['Station']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Station', true), array('action' => 'delete', $station['Station']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $station['Station']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Stations', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Station', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Paths', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Path', true), array('controller' => 'paths', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Near Stations', true), array('controller' => 'near_stations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Station Id', true), array('controller' => 'near_stations', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Start Station', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Upravit stanici', true), array('action' => 'edit', $station['Station']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Smazat stanici', true), array('action' => 'delete', $station['Station']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $station['Station']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit stanice', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat stanici', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit cesty', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nová cesta', true), array('controller' => 'paths', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit okolní stanice', true), array('controller' => 'near_stations', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobraz Trasy', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
+
 	</ul>
 </div>
 <div class="related">
-	<h3><?php __('Related Paths');?></h3>
+	<h3><?php __('Přiřazené cesty');?></h3>
 	<?php if (!empty($station['Path'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -93,7 +87,7 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Near Stations');?></h3>
+	<h3><?php __('Přiřazené okolní stanice');?></h3>
 	<?php if (!empty($station['station_id'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -133,7 +127,7 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Near Stations');?></h3>
+	<h3><?php __('Přiřazené okolní stanice');?></h3>
 	<?php if (!empty($station['near_station_id'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -173,7 +167,7 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Routes');?></h3>
+	<h3><?php __('Přiřazené trasy');?></h3>
 	<?php if (!empty($station['start_station'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -225,7 +219,7 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Routes');?></h3>
+	<h3><?php __('Přiřazené trasy');?></h3>
 	<?php if (!empty($station['end_station'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>

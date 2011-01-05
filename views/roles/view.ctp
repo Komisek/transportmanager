@@ -14,14 +14,13 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Role', true), array('action' => 'edit', $role['Role']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Role', true), array('action' => 'delete', $role['Role']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $role['Role']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Roles', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Role', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Employees', true), array('controller' => 'employees', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employee', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $role['Role']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $role['Role']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $role['Role']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit role', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat roli', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit zaměstnance', true), array('controller' => 'employees', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">

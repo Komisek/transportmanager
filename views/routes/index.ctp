@@ -1,15 +1,15 @@
 <div class="routes index">
-	<h2><?php __('Routes');?></h2>
+	<h2><?php __('Trasy');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('start_station_id');?></th>
-			<th><?php echo $this->Paginator->sort('end_station_id');?></th>
-			<th><?php echo $this->Paginator->sort('datum_cas');?></th>
-			<th><?php echo $this->Paginator->sort('periodicity_id');?></th>
-			<th><?php echo $this->Paginator->sort('train_id');?></th>
-			<th><?php echo $this->Paginator->sort('path_id');?></th>
-			<th><?php echo $this->Paginator->sort('stav_schvaleni');?></th>
+			<th><?php echo $this->Paginator->sort('Čislo trasy','id');?></th>
+			<th><?php echo $this->Paginator->sort('Počáteční stanice', 'start_station_id');?></th>
+			<th><?php echo $this->Paginator->sort('Cílová stanice','end_station_id');?></th>
+			<th><?php echo $this->Paginator->sort('Datum a čas','datum_cas');?></th>
+			<th><?php echo $this->Paginator->sort('Periodicita','periodicity_id');?></th>
+			<th><?php echo $this->Paginator->sort('Číslo vlaku','train_id');?></th>
+			<th><?php echo $this->Paginator->sort('Cesta','path_id');?></th>
+			<th><?php echo $this->Paginator->sort('Stav schválení','stav_schvaleni');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -44,38 +44,34 @@
 		<td><?php echo $route['Route']['created']; ?>&nbsp;</td>
 		<td><?php echo $route['Route']['modified']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $route['Route']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $route['Route']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $route['Route']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $route['Route']['id'])); ?>
+			<?php echo $this->Html->link(__('Detail', true), array('action' => 'view', $route['Route']['id'])); ?>
+			<?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $route['Route']['id'])); ?>
+			<?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $route['Route']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $route['Route']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
 	<p>
-	<?php
+		<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
+	'format' => __('Stánka %page% z %pages%, celkový počet záznamu %count%, zobrazeny záznamy %start% - %end%', true)
 	));
 	?>	</p>
 
 	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+		<?php echo $this->Paginator->prev('<< ' . __('předchozí', true), array(), null, array('class'=>'disabled'));?>
 	 | 	<?php echo $this->Paginator->numbers();?>
  |
-		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+		<?php echo $this->Paginator->next(__('další', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Route', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Periodicities', true), array('controller' => 'periodicities', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Periodicity', true), array('controller' => 'periodicities', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Trains', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Train', true), array('controller' => 'trains', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Paths', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Path', true), array('controller' => 'paths', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Stations', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Start Station', true), array('controller' => 'stations', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat trasu', true), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Zobraz periodicity', true), array('controller' => 'periodicities', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobraz vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobraz cesty', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobraz stanice', true), array('controller' => 'stations', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

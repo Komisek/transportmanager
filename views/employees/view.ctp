@@ -1,17 +1,12 @@
 <div class="employees view">
-<h2><?php  __('Employee');?></h2>
+<h2><?php  __('Zaměstnanec');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $employee['Employee']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Jméno'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $employee['Employee']['name']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Surname'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Příjmení'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $employee['Employee']['surname']; ?>
 			&nbsp;
@@ -21,7 +16,7 @@
 			<?php echo $employee['Employee']['email']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Passwd'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Heslo'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $employee['Employee']['passwd']; ?>
 			&nbsp;
@@ -34,18 +29,15 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Úpravy'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Employee', true), array('action' => 'edit', $employee['Employee']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Employee', true), array('action' => 'delete', $employee['Employee']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employee['Employee']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Employees', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employee', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Roles', true), array('controller' => 'roles', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Role', true), array('controller' => 'roles', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Archived Transportations', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archived Transportation', true), array('controller' => 'archived_transportations', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Trains', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Train', true), array('controller' => 'trains', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Upravit zaměstnance', true), array('action' => 'edit', $employee['Employee']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Smazat zaměstnance', true), array('action' => 'delete', $employee['Employee']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employee['Employee']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit zaměstnance', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat zaměstnance', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit role', true), array('controller' => 'roles', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit historii přepravy', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">
@@ -95,7 +87,7 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Trains');?></h3>
+	<h3><?php __('Přiřazené vlakové soupravy');?></h3>
 	<?php if (!empty($employee['Train'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>

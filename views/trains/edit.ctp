@@ -1,31 +1,31 @@
 <div class="trains form">
 <?php echo $this->Form->create('Train');?>
 	<fieldset>
- 		<legend><?php __('Edit Train'); ?></legend>
+ 		<legend><?php __('Úprava vlakové soupravy'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('route_id');
+		echo $this->Form->input('route_id', array('label' => 'Číslo trasy'));
 		echo $this->Form->input('stav_rezervace');
-		echo $this->Form->input('CargoWagon');
-		echo $this->Form->input('Employee');
-		echo $this->Form->input('Locomotive');
+		echo $this->Form->input('CargoWagon',  array('label' => 'Nákladní vozy'));
+		echo $this->Form->input('Employee',  array('label' => 'Strojvůdci'));
+		echo $this->Form->input('Locomotive',  array('label' => 'Hnací vozy'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('OK', true));?>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Další úpravy'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Train.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Train.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Trains', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Routes', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Route', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cargo Wagons', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cargo Wagon', true), array('controller' => 'cargo_wagons', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Employees', true), array('controller' => 'employees', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employee', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Locomotives', true), array('controller' => 'locomotives', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Locomotive', true), array('controller' => 'locomotives', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $this->Form->value('Train.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Train.id'))); ?></li>
+		<li><?php echo $this->Html->link(__('Zobrazit vlakové soupravy', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('Zobrazit trasy', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat trasu', true), array('controller' => 'routes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit nákladní vozy', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat nákladní vůz', true), array('controller' => 'cargo_wagons', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit strojvůdce', true), array('controller' => 'employees', 'action' => 'engine_driver_index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat zaměstnance', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit hnací vozy', true), array('controller' => 'locomotives', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Přidat hnací vůz', true), array('controller' => 'locomotives', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
