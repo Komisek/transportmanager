@@ -16,12 +16,17 @@
 			<?php echo $this->Html->link($route['EndStation']['name'], array('controller' => 'stations', 'action' => 'view', $route['EndStation']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Datum Cas'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Datum Cas ODJ'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $route['Route']['datum_cas']; ?>
+			<?php echo $route['Route']['datum_cas_odjezdu']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Periodicity'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Datum Cas PRIJ'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $route['Route']['datum_cas_prijezdu']; ?>
+			&nbsp;
+		</dd>
+                <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Periodicity'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($route['Periodicity']['name'], array('controller' => 'periodicities', 'action' => 'view', $route['Periodicity']['id'])); ?>
 			&nbsp;

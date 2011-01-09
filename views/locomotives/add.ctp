@@ -1,50 +1,37 @@
 <div class="locomotives form">
-<?php echo $this->Form->create('Locomotive');?>
-	<fieldset>
- 		<legend><?php __('Přidání hnacího vozu'); ?></legend>
-	<?php
-		echo $this->Form->input('brzda_parkovaci_druh');
-		echo $this->Form->input('brzda_primocara_druh');
-		echo $this->Form->input('brzda_rucni_druh');
-		echo $this->Form->input('brzda_tahova_druh');
-		echo $this->Form->input('brzdici_vaha');
-		echo $this->Form->input('cislo_prukazu_zpusobnosti');
-		echo $this->Form->input('delka_pres_narazniky');
-		echo $this->Form->input('dvojkoli_revize');
-		echo $this->Form->input('dvojkoli_velikost');
-		echo $this->Form->input('dvojkoli_vyrobce');
-		echo $this->Form->input('hmotnost');
-		echo $this->Form->input('inventarni_cislo');
-		echo $this->Form->input('klimatizace');
-		echo $this->Form->input('km_revize_celkova');
-		echo $this->Form->input('km_revize_dvojkoli');
-		echo $this->Form->input('km_revize_provozni');
-		echo $this->Form->input('komunikacni_zarizeni');
-		echo $this->Form->input('maximalni_rychlost');
-		echo $this->Form->input('motor_typ');
-		echo $this->Form->input('oprava_napln');
-		echo $this->Form->input('oprava_probihajici');
-		echo $this->Form->input('oznaceni');
-		echo $this->Form->input('provozni_cislo');
-		echo $this->Form->input('rada');
-		echo $this->Form->input('rok_vyroby');
-		echo $this->Form->input('rychlomer_cislo');
-		echo $this->Form->input('rychlomer_typ');
-		echo $this->Form->input('vykon');
-		echo $this->Form->input('vyrobce');
-		echo $this->Form->input('vyrobni_cislo');
-		echo $this->Form->input('ArchivedTransportation');
-		echo $this->Form->input('Train');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('OK', true));?>
+<h2><?php __('Locomotive');?></h2>
+    <?php
+        echo $this->SimplaBoxes->start_content_box(__('Přidání hnacího vozu', true));
+            echo $this->SimplaBoxes->start_content_tab(true);
+
+            echo $this->Form->create('Locomotive');
+            echo $this->SimplaForm->input_small('cislo_hv', array('label' => 'Číslo HV'));
+            echo $this->SimplaForm->input_small('maximalni_rychlost', array('label' => 'Maximální rychlost'));
+            echo $this->SimplaForm->input_small('rada', array('label' => 'Řada'));
+            echo $this->SimplaForm->input_small('rozvor_pevny', array('label' => 'Rozvor (pevný)'));
+            echo $this->SimplaForm->input_small('rozvor_celkovy', array('label' => 'Rozvor (celkový)'));
+            echo $this->SimplaForm->input_small('delka_pres_narazniky', array('label' => 'Délka přes nárazníky'));
+            echo $this->SimplaForm->input_small('max_hmotnost_na_napravu', array('label' => 'Maximální hmotnost na nápravu'));
+            echo $this->SimplaForm->input_small('hmotnost_ve_sluzbe', array('label' => 'Hmotnost ve službě'));
+            echo $this->SimplaForm->input_small('brzdici_vaha_g', array('label' => 'Délka přes nárazníky'));
+            echo $this->SimplaForm->input_small('brzdici_vaha_g', array('label' => 'Délka přes nárazníky'));
+            echo $this->SimplaForm->input_small('brzdici_vaha_g', array('label' => 'Délka přes nárazníky'));
+            echo $this->SimplaForm->input_small('brzdici_vaha_rucni_brzdy', array('label' => 'Délka přes nárazníky'));
+            echo $this->SimplaForm->input_small('Train', array('label' => 'Přiřazená vlaková souprava'));
+
+
+            echo $this->SimplaForm->end(array('label' => __('Ulož', true)));
+
+            echo $this->SimplaBoxes->end_content_tab();
+        echo $this->SimplaBoxes->end_content_box();
+    ?>
 </div>
 <div class="actions">
-	<h3><?php __('Další úpravy'); ?></h3>
+	<h3><?php __('Kam dál?'); ?></h3>
 	<ul>
-
-		<li><?php echo $this->Html->link(__('Zobrazit hnací vozy', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Zobrazit historii přepravy', true), array('controller' => 'archived_transportations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Zobrazit vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobraz nákladní vozy', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('Zobraz vozové řady', true), array('controller' => 'wagon_series', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobraz vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
+

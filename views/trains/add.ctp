@@ -1,4 +1,4 @@
-<div class="trains form">
+<div class="trains form"><?php pr($locomotives);?>
 <?php echo $this->Form->create('Train');?>
 	<fieldset>
  		<legend><?php __('Add Train'); ?></legend>

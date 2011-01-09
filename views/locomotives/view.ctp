@@ -1,159 +1,64 @@
 <div class="locomotives view">
 <h2><?php  __('Hnací vůz');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Číslo HV'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['id']; ?>
+			<?php echo $locomotive['Locomotive']['cislo_hv']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Brzda Parkovaci Druh'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['brzda_parkovaci_druh']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Brzda Primocara Druh'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['brzda_primocara_druh']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Brzda Rucni Druh'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['brzda_rucni_druh']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Brzda Tahova Druh'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['brzda_tahova_druh']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Brzdici Vaha'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['brzdici_vaha']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cislo Prukazu Zpusobnosti'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['cislo_prukazu_zpusobnosti']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Delka Pres Narazniky'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['delka_pres_narazniky']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Dvojkoli Revize'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['dvojkoli_revize']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Dvojkoli Velikost'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['dvojkoli_velikost']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Dvojkoli Vyrobce'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['dvojkoli_vyrobce']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Hmotnost'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['hmotnost']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Inventarni Cislo'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['inventarni_cislo']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Klimatizace'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['klimatizace']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Km Revize Celkova'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['km_revize_celkova']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Km Revize Dvojkoli'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['km_revize_dvojkoli']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Km Revize Provozni'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['km_revize_provozni']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Komunikacni Zarizeni'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['komunikacni_zarizeni']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Maximalni Rychlost'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Maximální rychlost'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $locomotive['Locomotive']['maximalni_rychlost']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Motor Typ'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['motor_typ']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Oprava Napln'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['oprava_napln']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Oprava Probihajici'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['oprava_probihajici']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Oznaceni'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['oznaceni']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Provozni Cislo'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['provozni_cislo']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rada'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Řada'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $locomotive['Locomotive']['rada']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rok Vyroby'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rozvor (pevný)'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['rok_vyroby']; ?>
+			<?php echo $locomotive['Locomotive']['rozvor_pevny']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rychlomer Cislo'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rozvor (celkový)'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['rychlomer_cislo']; ?>
+			<?php echo $locomotive['Locomotive']['rozvor_celkovy']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rychlomer Typ'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Délka přes nárazníky'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['rychlomer_typ']; ?>
+			<?php echo $locomotive['Locomotive']['delka_pres_narazniky']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vykon'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Maximální hmotnost na nápravu'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['vykon']; ?>
+			<?php echo $locomotive['Locomotive']['max_hmotnost_na_napravu']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vyrobce'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Hmotnost ve službě'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['vyrobce']; ?>
+			<?php echo $locomotive['Locomotive']['hmotnost_ve_sluzbe']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vyrobni Cislo'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Bzdící váha G'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $locomotive['Locomotive']['vyrobni_cislo']; ?>
+			<?php echo $locomotive['Locomotive']['brzdici_vaha_g']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Bzdící váha P'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $locomotive['Locomotive']['brzdici_vaha_p']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Bzdící váha R'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $locomotive['Locomotive']['brzdici_vaha_r']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Bzdící váha ruční brzdy'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $locomotive['Locomotive']['brzdici_vaha_rucni_brzdy']; ?>
 			&nbsp;
 		</dd>
 	</dl>

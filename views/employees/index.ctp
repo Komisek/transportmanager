@@ -1,54 +1,46 @@
 <div class="employees index">
-	<h2><?php __('Zaměstnanci');?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('Jméno','name');?></th>
-			<th><?php echo $this->Paginator->sort('Příjmení','surname');?></th>
-			<th><?php echo $this->Paginator->sort('email');?></th>
-			<th><?php echo $this->Paginator->sort('role_id');?></th>
-			<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-	$i = 0;
-	foreach ($employees as $employee):
-		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
-	?>
-	<tr<?php echo $class;?>>
-		<td><?php echo $employee['Employee']['name']; ?>&nbsp;</td>
-		<td><?php echo $employee['Employee']['surname']; ?>&nbsp;</td>
-		<td><?php echo $employee['Employee']['email']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($employee['Role']['name'], array('controller' => 'roles', 'action' => 'view', $employee['Role']['id'])); ?>
-		</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('Detail', true), array('action' => 'view', $employee['Employee']['id'])); ?>
-			<?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $employee['Employee']['id'])); ?>
-			<?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $employee['Employee']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employee['Employee']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Stánka %page% z %pages%, celkový počet záznamu %count%, zobrazeny záznamy %start% - %end%', true)
-	));
-	?>	</p>
+    <?php
+        echo $this->SimplaBoxes->clear();
+        echo $this->SimplaBoxes->start_content_box(__('Výpis zaměstnanců', true));
+            echo $this->SimplaBoxes->start_content_tab(true);
 
-	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('předchozí', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('další', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-	</div>
+            echo $this->SimplaTable->start_table('Employee');
+                echo $this->SimplaTable->table_head(
+                        array(
+                            __('Jméno', true),
+                            __('Příjmení', true),
+                            __('e-mail', true),
+                            __('Role', true),
+                            __('Akce', true)
+                        ));
+                echo $this->SimplaTable->table_body(
+                        $employees,
+                        array(
+                            'Employee.name',
+                            'Employee.surname',
+                            'Employee.email',
+                            'Role.name',
+                            'actions' => array(
+                                'Employee.edit' => __('Upravit', true),
+                                'Employee.delete' => __('Smazat', true),
+                            )
+                        ));
+                echo $this->SimplaTable->table_foot(
+                        array(
+                            'addAction' =>  array('text' => __('Přidat nového zaměstnance', true), 'url' => array('admin' => true, 'controller' => 'employees', 'action' => 'add')),
+                            'pagination' => true
+                        ));
+            echo $this->SimplaTable->end_table();
+
+            //debug($employees);
+
+            echo $this->SimplaBoxes->end_content_tab();
+        echo $this->SimplaBoxes->end_content_box();
+    ?>
 </div>
 <div class="actions">
-	<h3><?php __('Úpravy'); ?></h3>
+	<h3><?php __('Kam dál?'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Přidat zaměstnance', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Zobrazit role', true), array('controller' => 'roles', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

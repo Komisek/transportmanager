@@ -2,16 +2,11 @@
 	<h2><?php __('Vozové řady');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('brzdici_vaha');?></th>
-			<th><?php echo $this->Paginator->sort('cislo');?></th>
-			<th><?php echo $this->Paginator->sort('delka');?></th>
-			<th><?php echo $this->Paginator->sort('oznaceni');?></th>
-			<th><?php echo $this->Paginator->sort('pocet_naprav');?></th>
-			<th><?php echo $this->Paginator->sort('rozvor');?></th>
-			<th><?php echo $this->Paginator->sort('rucni_brzda');?></th>
-			<th><?php echo $this->Paginator->sort('unosnost');?></th>
-			<th><?php echo $this->Paginator->sort('vyska_nad_temenem_kolejnice');?></th>
-			<th><?php echo $this->Paginator->sort('vzdalenost_os');?></th>
+			<th><?php echo $this->Paginator->sort('Základní řada', 'zakladni_rada');?></th>
+			<th><?php echo $this->Paginator->sort('Označení', 'oznaceni');?></th>
+			<th><?php echo $this->Paginator->sort('Konstrukční skupina', 'konstrukcni_skupina');?></th>
+			<th><?php echo $this->Paginator->sort('Délka', 'delka');?></th>
+			<th><?php echo $this->Paginator->sort('Únosnost','unosnost');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -23,16 +18,11 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $wagonSeries['WagonSeries']['brzdici_vaha']; ?>&nbsp;</td>
-		<td><?php echo $wagonSeries['WagonSeries']['cislo']; ?>&nbsp;</td>
-		<td><?php echo $wagonSeries['WagonSeries']['delka']; ?>&nbsp;</td>
+		<td><?php echo $wagonSeries['WagonSeries']['zakladni_rada']; ?>&nbsp;</td>
 		<td><?php echo $wagonSeries['WagonSeries']['oznaceni']; ?>&nbsp;</td>
-		<td><?php echo $wagonSeries['WagonSeries']['pocet_naprav']; ?>&nbsp;</td>
-		<td><?php echo $wagonSeries['WagonSeries']['rozvor']; ?>&nbsp;</td>
-		<td><?php echo $wagonSeries['WagonSeries']['rucni_brzda']; ?>&nbsp;</td>
+		<td><?php echo $wagonSeries['WagonSeries']['konstrukcni_skupina']; ?>&nbsp;</td>
+		<td><?php echo $wagonSeries['WagonSeries']['delka']; ?>&nbsp;</td>
 		<td><?php echo $wagonSeries['WagonSeries']['unosnost']; ?>&nbsp;</td>
-		<td><?php echo $wagonSeries['WagonSeries']['vyska_nad_temenem_kolejnice']; ?>&nbsp;</td>
-		<td><?php echo $wagonSeries['WagonSeries']['vzdalenost_os']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Detail', true), array('action' => 'view', $wagonSeries['WagonSeries']['id'])); ?>
 			<?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $wagonSeries['WagonSeries']['id'])); ?>
@@ -60,6 +50,5 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Přidat vozovou řadu', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Zobrazit nákladní vozy', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Přidat nákladní vůz', true), array('controller' => 'cargo_wagons', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

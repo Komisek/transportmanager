@@ -5,7 +5,8 @@
 			<th><?php echo $this->Paginator->sort('Čislo trasy','id');?></th>
 			<th><?php echo $this->Paginator->sort('Počáteční stanice', 'start_station_id');?></th>
 			<th><?php echo $this->Paginator->sort('Cílová stanice','end_station_id');?></th>
-			<th><?php echo $this->Paginator->sort('Datum a čas','datum_cas');?></th>
+			<th><?php echo $this->Paginator->sort('Datum a čas odjezdu','datum_cas_odjezdu');?></th>
+			<th><?php echo $this->Paginator->sort('Datum a čas příjezdu','datum_cas_prijezdu');?></th>
 			<th><?php echo $this->Paginator->sort('Periodicita','periodicity_id');?></th>
 			<th><?php echo $this->Paginator->sort('Číslo vlaku','train_id');?></th>
 			<th><?php echo $this->Paginator->sort('Cesta','path_id');?></th>
@@ -30,7 +31,8 @@
 		<td>
 			<?php echo $this->Html->link($route['EndStation']['name'], array('controller' => 'stations', 'action' => 'view', $route['EndStation']['id'])); ?>
 		</td>
-		<td><?php echo $route['Route']['datum_cas']; ?>&nbsp;</td>
+		<td><?php echo $route['Route']['datum_cas_odjezdu']; ?>&nbsp;</td>
+		<td><?php echo $route['Route']['datum_cas_prijezdu']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($route['Periodicity']['name'], array('controller' => 'periodicities', 'action' => 'view', $route['Periodicity']['id'])); ?>
 		</td>

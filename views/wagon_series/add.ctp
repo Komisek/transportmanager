@@ -1,29 +1,35 @@
 <div class="wagonSeries form">
-<?php echo $this->Form->create('WagonSeries');?>
-	<fieldset>
- 		<h3><?php __('Přidání vozové řady'); ?></h3>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('brzdici_vaha', array('label' => 'Brzdící váha'));
-		echo $this->Form->input('cislo', array('label' => 'Číslo'));
-		echo $this->Form->input('delka', array('label' => 'Délka'));
-		echo $this->Form->input('oznaceni', array('label' => 'Označení'));
-		echo $this->Form->input('pocet_naprav', array('label' => 'Počet náprav'));
-		echo $this->Form->input('rozvor', array('label' => 'Rozvor'));
-		echo $this->Form->input('rucni_brzda', array('label' => 'Ruční brzda'));
-		echo $this->Form->input('unosnost', array('label' => 'Únosnost'));
-		echo $this->Form->input('vyska_nad_temenem_kolejnice', array('label' => 'Výška nad temenem kolejnice'));
-		echo $this->Form->input('vzdalenost_os', array('label' => 'Vzdálenost os'));
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('OK', true));?>
+<h2><?php __('WagonSeries');?></h2>
+    <?php
+        echo $this->SimplaBoxes->start_content_box(__('Přidání vozové řady', true));
+            echo $this->SimplaBoxes->start_content_tab(true);
+
+            echo $this->Form->create('WagonSeries');
+            echo $this->SimplaForm->input_small('cislo', array('label' => 'Číslo'));
+            echo $this->SimplaForm->input_small('zakladni_rada', array('label' => 'Základní řada'));
+            echo $this->SimplaForm->input_small('oznaceni', array('label' => 'Označení'));
+            echo $this->SimplaForm->input_small('konstrukcni_skupina', array('label' => 'Konstrukční skupina'));
+            echo $this->SimplaForm->input_small('delka', array('label' => 'Délka'));
+            echo $this->SimplaForm->input_small('pocet_naprav', array('label' => 'Počet náprav'));
+            echo $this->SimplaForm->input_small('rozvor', array('label' => 'Rozvor'));
+            echo $this->SimplaForm->input_small('unosnost', array('label' => 'Únosnost'));
+            echo $this->SimplaForm->input_small('vyska_nad_temenem_kolejnice', array('label' => 'Výška nad temenem kolejnice'));
+            echo $this->SimplaForm->input_small('vzdalenost_os', array('label' => 'Vzdálenost os'));
+            echo $this->SimplaForm->input_small('popis_vozu', array('label' => 'Popis vozu'));
+
+
+            echo $this->SimplaForm->end(array('label' => __('Ulož', true)));
+
+            echo $this->SimplaBoxes->end_content_tab();
+        echo $this->SimplaBoxes->end_content_box();
+    ?>
 </div>
 <div class="actions">
-	<h3><?php __('Další úpravy'); ?></h3>
+	<h3><?php __('Kam dál?'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('Zobrazit vozové řady', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('Zobrazit nákladní vozy', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Přidat nákladní vůz', true), array('controller' => 'cargo_wagons', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Zobrazit zaměstnance', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('Zobrazit role', true), array('controller' => 'roles', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
+

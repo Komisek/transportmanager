@@ -6,7 +6,8 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('start_station_id', array('label' => 'Počáteční stanice'));
 		echo $this->Form->input('end_station_id', array('label' => 'Cílová stanice'));
-		echo $this->Form->input('datum_cas', array('label' => 'Datum a čas'));
+		echo $this->Form->input('datum_cas_odjezdu', array('label' => 'Datum a čas'));
+		echo $this->Form->input('datum_cas_prijezdu', array('label' => 'Datum a čas'));
 		echo $this->Form->input('periodicity_id', array('label' => 'Periodicita'));
 		echo $this->Form->input('train_id', array('label' => 'Číslo vlakové soupravy'));
 		echo $this->Form->input('path_id', array('label' => 'Cesta'));

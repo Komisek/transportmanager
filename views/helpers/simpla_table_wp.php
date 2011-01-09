@@ -1,6 +1,6 @@
 <?php
 
-class SimplaTableHelper extends FormHelper
+class SimplaTableWpHelper extends FormHelper
 {
     var $__model = '';
     var $__countCols = 0;
@@ -311,22 +311,22 @@ class SimplaTableHelper extends FormHelper
                 $out .= ' '.$this->Html->link(__('Použít na vybrané', true), array(), array('class' => 'button', 'onclick' => "$('#{$this->__model}Listing').submit(); return false;"));
                 $out .= '</div>';
             }
-            if(isset($options['pagination']) && $options['pagination'] == true)
+            /*if(isset($options['pagination']) && $options['pagination'] == true)
             {
                 $out .= '<div class="pagination">';
                 $out .= $this->Paginator->first(__('&laquo; První', true), array('escape' => false));
                 $out .= $this->Paginator->prev(__('&laquo; Předcházející - ', true), array('escape' => false));
                 $out .= $this->Paginator->numbers();
                 $out .= $this->Paginator->next(__(' - Následující &raquo;', true), array('escape' => false));
-                $out .= $this->Paginator->last(__('Poslední &raquo;', true), array('escape' => false));
+                $out .= $this->Paginator->last(__('Poslední &raquo;', true), array('escape' => false));*/
                        /*<!-- <a href="#" title="First Page">&laquo; First</a><a href="#" title="Previous Page">&laquo; Previous</a>
                         <a href="#" class="number" title="1">1</a>
                         <a href="#" class="number" title="2">2</a>
                         <a href="#" class="number current" title="3">3</a>
                         <a href="#" class="number" title="4">4</a>
                         <a href="#" title="Next Page">Next &raquo;</a><a href="#" title="Last Page">Last &raquo;</a> -->*/
-                $out .= '</div> <!-- End .pagination -->';
-            }
+            /*    $out .= '</div> <!-- End .pagination -->';
+            }*/
             $out .= $this->SimplaBoxes->clear();
             $out .= '</td>';
             $out .= '</tr>';

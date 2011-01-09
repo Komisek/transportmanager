@@ -1,19 +1,14 @@
 <div class="wagonSeries view">
 <h2><?php  __('Vozová řada (detail)');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Brzdici Vaha'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $wagonSeries['WagonSeries']['brzdici_vaha']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cislo'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Číslo'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $wagonSeries['WagonSeries']['cislo']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Delka'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Základní řada'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $wagonSeries['WagonSeries']['delka']; ?>
+			<?php echo $wagonSeries['WagonSeries']['zakladni_rada']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Oznaceni'); ?></dt>
@@ -21,7 +16,17 @@
 			<?php echo $wagonSeries['WagonSeries']['oznaceni']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Pocet Naprav'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Konstrukční skupina'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $wagonSeries['WagonSeries']['konstrukcni_skupina']; ?>
+			&nbsp;
+		</dd>
+                <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Délka'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $wagonSeries['WagonSeries']['delka']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Počet Náprav'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $wagonSeries['WagonSeries']['pocet_naprav']; ?>
 			&nbsp;
@@ -31,12 +36,7 @@
 			<?php echo $wagonSeries['WagonSeries']['rozvor']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rucni Brzda'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $wagonSeries['WagonSeries']['rucni_brzda']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Unosnost'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Únosnost'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $wagonSeries['WagonSeries']['unosnost']; ?>
 			&nbsp;
@@ -51,6 +51,12 @@
 			<?php echo $wagonSeries['WagonSeries']['vzdalenost_os']; ?>
 			&nbsp;
 		</dd>
+                <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Popis vozu'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $wagonSeries['WagonSeries']['popis_vozu']; ?>
+			&nbsp;
+		</dd>
+
 	</dl>
 </div>
 <div class="actions">
@@ -82,7 +88,7 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $cargoWagon['cislo_him'];?></td>
+			<td><?php echo $cargoWagon['him'];?></td>
 			<td><?php echo $cargoWagon['cislo_vozu'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'cargo_wagons', 'action' => 'view', $cargoWagon['id'])); ?>

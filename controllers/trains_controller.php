@@ -2,6 +2,68 @@
 class TrainsController extends AppController {
 
 	var $name = 'Trains';
+        var $components = array('Wizard.Wizard');
+        var $helpers = array('Form', 'Html', 'Session', 'Menu', 'Time', 'SimplaForm', 'SimplaTableWp', 'SimplaBoxes');
+
+        function beforeFilter() {
+	$this->Wizard->steps = array('locomotive', 'cargo', 'driver', 'route', 'review');
+        $this->Wizard->completeUrl = '/trains/confirm';
+        }
+
+        function confirm() {
+        }
+        
+        function wizard($step = null) {
+        $this->Wizard->process($step);
+        }
+
+        function _prepareLocomotive(){
+            $locomotives = $this->Train->Locomotive->find('all');
+            $this->set(compact('locomotives'));
+        }
+        function _processLocomotive() {
+                return true;
+        }
+
+        function _prepareCargo(){
+            $cargoWagons = $this->Train->CargoWagon->find('all');
+            $this->set(compact('cargoWagons'));
+        }
+        function _processCargo() {
+            return true;
+        }
+
+        function _prepareDriver(){
+            $employees = $this->Train->Employee->find('all',  array('conditions' => array('role_id' => 7 )));
+            $this->set(compact('employees'));
+        }
+        function _processDriver() {
+            return true;
+        }
+
+        function _prepareRoute(){
+            $routes = $this->Train->Route->find('all');
+            $this->set(compact('routes'));
+        }
+        function _processRoute() {
+            return true;
+        }
+
+        function _prepareReview(){
+            $wizardData = $this->Wizard->read();
+            $routes = $this->Train->Route->find('all');
+            $this->set(compact('routes'));
+        }
+        function _processReview(){
+            return true;
+        }
+        function _afterComplete() {
+		$wizardData = $this->Wizard->read();
+		extract($wizardData);
+
+//		$this->Client->save($account['Client'], false, array('first_name', 'last_name', 'phone'));
+
+	}
 
         function index() {
 		$this->Train->recursive = 0;
@@ -28,7 +90,7 @@ class TrainsController extends AppController {
 		}
 		$routes = $this->Train->Route->find('list');
                 $cargoWagons = $this->Train->CargoWagon->find('list');
-       		$locomotives = $this->Train->Locomotive->find('list');
+       		$locomotives = $this->Train->Locomotive->find('list', array('fields' => array('Locomotive.cislo_hv')));
 		$employees = $this->Train->Employee->find('list',  array(
                                                           'conditions' => array('role_id' => 7 )));
                 $this->set(compact('routes', 'cargoWagons', 'locomotives', 'employees'));

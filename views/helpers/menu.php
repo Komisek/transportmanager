@@ -67,8 +67,8 @@ class MenuHelper extends AppHelper
             '/admin/web_settings' => array('/admin/acos'),
             '/transportations' => array('/orders', '/trains', '/routes'),
             '/routes' => array('/stations', '/paths'),
-            '/employees' => array('/employees', '/employees/engine-drivers-index', '/roles'),
-            '/railcars' => array('/locomotives', '/cargo_wagons', '/vagon_series'),
+            '/employees' => array('/employees', '/roles'),
+            '/sources' => array('/employees/engine-drivers-index', '/locomotives', '/cargo_wagons', '/wagon_series'),
             '/user/settings' => array('/users/change_password'),
             '/settings' => array('/settings' ,'/acos')
         );
