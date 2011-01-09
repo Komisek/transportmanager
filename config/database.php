@@ -17,6 +17,7 @@ switch($_SERVER['HTTP_HOST'])
                                     'login' => 'transportmanager',
                                     'password' => 'transportmanager',
                                     'database' => 'transportmanager',
+                                    'encoding' => 'utf8'
                             );
                     }
                 break;

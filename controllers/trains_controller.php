@@ -4,6 +4,7 @@ class TrainsController extends AppController {
 	var $name = 'Trains';
         var $components = array('Wizard.Wizard');
         var $helpers = array('Form', 'Html', 'Session', 'Menu', 'Time', 'SimplaForm', 'SimplaTableWp', 'SimplaBoxes');
+        var $uses = array('Train', 'Locomotive', 'CargoWagon', 'Employee', 'Route');
 
         function beforeFilter() {
 	$this->Wizard->steps = array('locomotive', 'cargo', 'driver', 'route', 'review');
@@ -20,14 +21,18 @@ class TrainsController extends AppController {
         function _prepareLocomotive(){
             $locomotives = $this->Train->Locomotive->find('all');
             $this->set(compact('locomotives'));
+            
+            //pr($this->Wizard->read());
         }
         function _processLocomotive() {
+            $this->Locomotive->set($this->data);
                 return true;
         }
 
         function _prepareCargo(){
             $cargoWagons = $this->Train->CargoWagon->find('all');
             $this->set(compact('cargoWagons'));
+            pr($this->Wizard->read());
         }
         function _processCargo() {
             return true;
@@ -59,7 +64,7 @@ class TrainsController extends AppController {
         }
         function _afterComplete() {
 		$wizardData = $this->Wizard->read();
-		extract($wizardData);
+		pr($wizardData);
 
 //		$this->Client->save($account['Client'], false, array('first_name', 'last_name', 'phone'));
 
