@@ -16,6 +16,19 @@ class StationsController extends AppController {
 		$this->set('station', $this->Station->read(null, $id));
 	}
 
+        function ajaxget()
+        {
+            $this->layout = 'ajax';
+            $stations = $this->Station->find('all',
+                    array(
+                        'conditions' => array('Station.name LIKE' => '%'.$this->params['url']['q'].'%'),
+                        'limit' => $this->params['url']['limit'],
+                        'fields' => array('name')
+                    )
+                    );
+            $this->set('stations', $stations);
+        }
+
 	function add() {
 		if (!empty($this->data)) {
 			$this->Station->create();

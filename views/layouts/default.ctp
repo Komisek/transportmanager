@@ -10,11 +10,16 @@
 <title>
 <?php echo $_SERVER['HTTP_HOST']; ?> - Admin
 <?php echo $title_for_layout; ?>
-</title>
+</title> 
 <?php
-    echo $html->css(array('admin/reset', 'admin/style', 'admin/invalid', 'admin/admin'));
 
-    echo $html->script('admin/jquery-1.3.2.min');
+    echo $html->css(array('admin/reset', 'admin/style', 'admin/invalid', 'admin/admin', 'admin/kvasAjax', 'admin/timepicker-addon'));
+    echo $html->css('south-street/jquery-ui-1.8.7.custom');
+
+    echo $html->script('jquery-1.4.4.min');
+    echo $html->script('jquery-ui-1.8.7.custom.min');
+    echo $html->script('jquery-ui-timepicker-addon');
+    echo $html->script('jquery.autocomplete.min');
     echo $html->script('admin/simpla.jquery.configuration');
     echo $html->script('admin/facebox');
     echo $html->script('admin/jquery.wysiwyg');

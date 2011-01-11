@@ -17,14 +17,14 @@ class Path extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
+		),/*
 		'ParentPath' => array(
 			'className' => 'Path',
 			'foreignKey' => 'parent_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		)*/
 	);
 
 	var $hasMany = array(
@@ -41,7 +41,7 @@ class Path extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'ChildPath' => array(
+		/*'ChildPath' => array(
 			'className' => 'Path',
 			'foreignKey' => 'parent_id',
 			'dependent' => false,
@@ -53,7 +53,7 @@ class Path extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
+		),*/
 		'Route' => array(
 			'className' => 'Route',
 			'foreignKey' => 'path_id',
@@ -68,6 +68,32 @@ class Path extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+
+        /*
+         * rray
+        (
+            [0] => Array
+                (
+                    [name] => Praha hl.n
+                )
+
+            [1] => Array
+                (
+                    [name] => Pardubice hl.n.
+                )
+
+            [2] => Array
+                (
+                    [name] => Přerov
+                )
+
+        )
+
+         */
+//        function savePath($stations)
+//        {
+//
+//        }
 
 }
 ?>
