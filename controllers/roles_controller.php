@@ -2,8 +2,13 @@
 class RolesController extends AppController {
 
 	var $name = 'Roles';
+/*function beforeFilter() {
+    parent::beforeFilter();
+    $this->Auth->allow(array('*'));
+}*/
 
-	function index() {
+
+        function index() {
 		$this->Role->recursive = 0;
 		$this->set('roles', $this->paginate());
 	}

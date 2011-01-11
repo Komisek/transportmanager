@@ -24,8 +24,7 @@
                             'Route.datum_cas_odjezdu',
                             'Route.datum_cas_prijezdu',
                             'actions' => array(
-                                'orders.schvaleni' => __('Odeslat na schválení', true),
-                                'orders.archiv' => __('Přesunout do archivu', true)
+                                'orders.schvaleni' => __('Odeslat na schválení', true)
                             )
                         ));
                 echo $this->SimplaTable->table_foot(

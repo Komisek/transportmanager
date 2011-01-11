@@ -1,5 +1,6 @@
 <div class="routes index">
     <?php
+    //pr($routes);
         echo $this->SimplaBoxes->clear();
         echo $this->SimplaBoxes->start_content_box(__('Výpis definovaných tras', true));
             echo $this->SimplaBoxes->start_content_tab(true);

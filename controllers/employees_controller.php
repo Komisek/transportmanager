@@ -3,7 +3,22 @@ class EmployeesController extends AppController {
 
 	var $name = 'Employees';
 
-	function index() {
+
+
+	/*function login() {
+        if ($this->Session->read('Auth.User')) {
+		$this->Session->setFlash('You are logged in!');
+		$this->redirect('/', null, false);
+	}
+        }
+
+        function logout() {
+         //Leave empty for now.
+        }*/
+
+
+
+        function index() {
 		$this->Employee->recursive = 0;
 		$this->set('employees', $this->paginate());
 	}

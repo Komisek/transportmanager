@@ -1,65 +1,18 @@
 <div class="routes view">
     <?php
+    //pr($this->Route->__paths($route['Path']));
     pr($route);
-    ?>
-<h2><?php  __('Trasa');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $route['Route']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Start Station'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($route['StartStation']['name'], array('controller' => 'stations', 'action' => 'view', $route['StartStation']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('End Station'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($route['EndStation']['name'], array('controller' => 'stations', 'action' => 'view', $route['EndStation']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Datum Cas ODJ'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $route['Route']['datum_cas_odjezdu']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Datum Cas PRIJ'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $route['Route']['datum_cas_prijezdu']; ?>
-			&nbsp;
-		</dd>
-                <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Periodicity'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($route['Periodicity']['name'], array('controller' => 'periodicities', 'action' => 'view', $route['Periodicity']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Train'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($route['Train']['id'], array('controller' => 'trains', 'action' => 'view', $route['Train']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Path'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($route['Path']['id'], array('controller' => 'paths', 'action' => 'view', $route['Path']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Stav Schvaleni'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $route['Route']['stav_schvaleni']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $route['Route']['created']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $route['Route']['modified']; ?>
-			&nbsp;
-		</dd>
-	</dl>
+    pr($paths);
+        echo $this->SimplaBoxes->clear();
+        echo $this->SimplaBoxes->start_content_box(__('Detail trasy', true));
+            echo $this->SimplaBoxes->start_content_tab(true);
+            echo '<h3>Počáteční stanice: </h3>'.$route['StartStation']['name'].' - Čas odjezdu: '.$route['Route']['datum_cas_odjezdu'].'<br/><br/>';
+            echo '<h3>Průjezdní stanice: </h3>  ';
+            echo '<h3>Cílová stanice: </h3>'.$route['EndStation']['name'].' - Čas příjezdu: '.$route['Route']['datum_cas_prijezdu'].'<br/><br/>';
+            echo '<h3>Stav rezervace: </h3>'.$route['Train']['stav_rezervace'].'<br/><br/>';
+            echo $this->Html->link(__('Přiřazený vlak', true), array('controller' => 'trains', 'action' => 'view', $route['Train']['id']));
+            echo $this->SimplaBoxes->end_content_tab();
+        echo $this->SimplaBoxes->end_content_box();?>
 </div>
 <div class="actions">
 	<h3><?php __('Úpravy'); ?></h3>

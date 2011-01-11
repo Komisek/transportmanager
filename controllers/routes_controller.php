@@ -2,7 +2,7 @@
 class RoutesController extends AppController {
 
 	var $name = 'Routes';
-
+        //var $uses = array('Path', 'Route');
         var $helpers = array('Form', 'Html', 'Session', 'Menu', 'Time', 'SimplaForm', 'SimplaTable', 'SimplaBoxes', 'Javascript', 'Ajax');
 
 	function index() {
@@ -15,8 +15,24 @@ class RoutesController extends AppController {
 			$this->Session->setFlash(__('Invalid route', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('route', $this->Route->read(null, $id));
+
+                $route = $this->Route->read(null, $id);
+                $paths = $this->Route->__paths($route['Path']);
+                $this->set(compact('paths', 'route'));
 	}
+
+        function __paths($paths){
+            $next_id = $paths['next_id'];
+            $this->loadModel('Station');
+            $this->loadModel('Path');
+            while ($next_id != null) {
+                $nazev = $this->Station->query('select name from stations where id='.$paths['id']);
+                $pole = $pole.array('id' => $paths['id'], 'name' => $nazev);
+                $další = $this->Path->query('select next_id from paths where station_id='.$paths['id']);
+                $next_id = $dalsi;
+            }
+            return $pole;
+        }
 
 	function add() {
 		if (!empty($this->data)) {
@@ -58,11 +74,11 @@ class RoutesController extends AppController {
                     }
 		}
 		$periodicities = $this->Route->Periodicity->find('list');
-		//$trains = $this->Route->Train->find('list');
+		$trains = $this->Route->Train->find('list');
 		//$paths = $this->Route->Path->find('list');
 		//$startStations = $this->Route->StartStation->find('list');
 		//$endStations = $this->Route->EndStation->find('list');
-		$this->set(compact('periodicities'));
+		$this->set(compact('periodicities', 'trains'));
 	}
 
         function __savePath()

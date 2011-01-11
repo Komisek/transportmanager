@@ -67,7 +67,6 @@
                                 <?php echo $menu->link(__('Trasy', true), array('admin' => false, 'controller' => 'routes'), array('toplink' => true)); ?>
                                 <ul>
                                     <li><?php echo $menu->link(__('Stanice', true), array('admin' => false, 'controller' => 'stations'));?></li>
-                                    <li><?php echo $menu->link(__('Cesty', true), array('admin' => false, 'controller' => 'paths')); ?></li>
                                 </ul>
                             </li>
 
@@ -87,10 +86,6 @@
                                             <li><?php echo $menu->link(__('Zobraz nákladní vozy', true), array('admin' => false, 'controller' => 'cargo_wagons'));?></li>
                                             <li><?php echo $menu->link(__('Zobraz vozové řady', true), array('admin' => false, 'controller' => 'wagon_series'));?></li>
                                     </ul>
-                            </li>
-
-                            <li>
-                                <?php echo $menu->link(__('Archiv', true), array('admin' => false, 'controller' => 'archived_transportations'), array('toplink' => true, 'singlelink' => true));?>
                             </li>
 
                             <li>

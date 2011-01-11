@@ -104,39 +104,4 @@
                     <?php endforeach; ?>
                     </table>
             <?php endif; ?>
-        <?php echo $this->SimplaBoxes->end_content_tab();
-        echo $this->SimplaBoxes->end_content_box();?>
-        <?php echo $this->SimplaBoxes->start_content_box(__('Informace o trase', true));
-                echo $this->SimplaBoxes->start_content_tab(true);?>
-	<?php //pr($routes); ?>
-    
-        <?php if (!empty($train['Route'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Počáteční stanice'); ?></th>
-		<th><?php __('Cílová stanice'); ?></th>
-		<th><?php __('Periodicita'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($train['Route'] as $route):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $routes[0]['StartStation']['name'].' - '.$route['start_station_id'];?></td>
-			<td><?php echo $routes[0]['EndStation']['name'].' - '.$route['start_station_id'];?></td>
-			<td><?php echo $routes[0]['Periodicity']['name'].' - '.$route['start_station_id'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('Detal', true), array('controller' => 'routes', 'action' => 'view', $route['id'])); ?>
-			</td>
-		</tr>
-                    <?php endforeach; ?>
-                    </table>
-            <?php endif; ?>
-        <?php echo $this->SimplaBoxes->end_content_tab();
-        echo $this->SimplaBoxes->end_content_box();?>
-</div>
+  
