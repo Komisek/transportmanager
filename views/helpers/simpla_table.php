@@ -34,7 +34,7 @@ class SimplaTableHelper extends FormHelper
         $out ='';
         $out .= '<thead>'.NL;
         $out .= '<tr>'.NL;
-        $out .= '<th><input class="check-all" type="checkbox" /></th>'.NL;
+        //$out .= '<th><input class="check-all" type="checkbox" /></th>'.NL;
         foreach($names as $name)
         {
             $out .= '<th>'.$name.'</th>'.NL;
@@ -107,7 +107,7 @@ class SimplaTableHelper extends FormHelper
         {
             $out .= '<tr>'.NL;
             //$data = Inflector::pluralize($this->__model)
-            $out .= '<td>'.$this->Form->checkbox($row[$this->__model]['id'], array('value' => $row[$this->__model]['id'])).'</td>'.NL;
+            //$out .= '<td>'.$this->Form->checkbox($row[$this->__model]['id'], array('value' => $row[$this->__model]['id'])).'</td>'.NL;
             foreach($format as $key => $cell)
             {
                 $out .= '<td>';
@@ -132,6 +132,10 @@ class SimplaTableHelper extends FormHelper
                         if($action == 'delete')
                         {
                             $warning = __('Opravdu smazat?', true);
+                        }
+                        if($action == 'schvaleni')
+                        {
+                            $warning = __('Opravdu si přejete odeslat tuto soupravu na schválení k MI?', true);
                         }
                         $out .= $this->Html->link($this->Html->image('icons/simplicio/16x16/'.strtolower($this->__model).'_'.$action.'.png', array('alt' => $text, 'title' => $text)).$text, array('controller' => $controller, 'action' => $action, $row[$this->__model]['id']), array('escape' => false, 'title' => $text), $warning);
                         $out .= '&nbsp;&nbsp'.NL;

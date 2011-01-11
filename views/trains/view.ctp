@@ -67,7 +67,7 @@
                             <td><?php echo $cargoWagon['him'];?></td>
                             <td><?php echo $cargoWagon['cislo_vozu'];?></td>
                             <td class="actions">
-				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'cargo_wagon', 'action' => 'view', $cargoWagon['id'])); ?>
+				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'cargo_wagons', 'action' => 'view', $cargoWagon['id'])); ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

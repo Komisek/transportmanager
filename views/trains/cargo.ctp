@@ -1,7 +1,7 @@
 <?php //pr($cargoWagons)?>
-<?php echo $this->Wizard->progressMenu(array('locomotive', 'cargo', 'driver', 'route', 'review'));?>
+<?php echo $this->Wizard->progressMenu(array('locomotive' => ' * Výběr hnacího vozu', 'cargo' => ' * Výběr nákladního vozu', 'driver' => ' * Výběr strojvedoucího', 'review' => ' * Dokončení vlakové soupravy'), array('wrap' => 'wrap'));?><br/>
+<br/><br/>
 <?php echo $form->create('Train',array('id'=>'TrainCreateForm','url'=>$this->here));?>
-    <h2>Přídání vlakové soupravy</h2>
 <?php
         echo $this->SimplaBoxes->clear();
         echo $this->SimplaBoxes->start_content_box(__('Krok '.$wizard->stepNumber().': Výběr nákladních vozů', true));

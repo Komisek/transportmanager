@@ -1,14 +1,15 @@
 <div class="trains index">
-        <?php //pr($trains)?>
+        <?php   //pr($trains)?>
     <?php
         echo $this->SimplaBoxes->clear();
-        echo $this->SimplaBoxes->start_content_box(__('Výpis vlakových souprav', true));
+        echo $this->SimplaBoxes->start_content_box(__('Výpis souprav a tras', true));
             echo $this->SimplaBoxes->start_content_tab(true);
 
             echo $this->SimplaTable->start_table('Train');
                 echo $this->SimplaTable->table_head(
                         array(
                             __('Číslo vlakové soupravy', true),
+                            __('Číslo trasy', true),
                             __('Stav rezervace', true),
                             __('Čas odjezdu', true),
                             __('Čas příjezdu', true),
@@ -18,19 +19,18 @@
                         $trains,
                         array(
                             'Train.id',
+                            'Route.id',
                             'Train.stav_rezervace',
                             'Route.datum_cas_odjezdu',
                             'Route.datum_cas_prijezdu',
                             'actions' => array(
-                                'train.view' => __('Detail', true),
-                                'train.edit' => __('Upravit', true),
-                                'train.delete' => __('Smazat', true),
+                                'orders.schvaleni' => __('Odeslat na schválení', true),
+                                'orders.archiv' => __('Přesunout do archivu', true)
                             )
                         ));
                 echo $this->SimplaTable->table_foot(
                         array(
-                            'addAction' =>  array('text' => __('Přidat novou vlakovou soupravu', true), 'url' => array('admin' => true, 'controller' => 'trains', 'action' => 'wizard')),
-                            'pagination' => true
+                                'pagination' => true
                         ));
             echo $this->SimplaTable->end_table();
 

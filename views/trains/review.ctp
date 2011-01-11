@@ -1,16 +1,6 @@
-<?php 
-    //pr($wizardData);
-    //echo $wizardData['Train'][1];
-foreach ($wizardData['cargo']['Train'] as $cargo) {
-       if($cargo != 0){
-           echo $cargo;?><br/><?php
-       }
-    }
-
-?>
-<?php echo $this->Wizard->progressMenu(array('locomotive', 'cargo', 'driver', 'review', 'kontrola'));?>
+<?php echo $this->Wizard->progressMenu(array('locomotive' => ' * Výběr hnacího vozu', 'cargo' => ' * Výběr nákladního vozu', 'driver' => ' * Výběr strojvedoucího', 'review' => ' * Dokončení vlakové soupravy'), array('wrap' => 'wrap'));?><br/>
 <?php echo $form->create('Train',array('id'=>'TrainCreateForm','url'=>$this->here));?>
-    <h2>Přídání vlakové soupravy</h2>
+<br/><br/>
 <?php
         echo $this->SimplaBoxes->clear();
         echo $this->SimplaBoxes->start_content_box(__('Krok '.$wizard->stepNumber().': Dokončení', true));

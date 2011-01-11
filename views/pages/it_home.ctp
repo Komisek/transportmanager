@@ -15,7 +15,23 @@
                     <div class="content-box-content">
                         <div class="tab-content default-tab">
 
-                            <?php echo $this->element('employees/image_menu');?>
+                            <?php echo $this->element('employees/it_image_menu');?>
+
+                        </div> <!-- End tab-content -->
+                    </div> <!-- End .content-box-content -->
+            </div> <!-- End .content-box -->
+                        <div class="content-box column-right"><!-- Start Content Box -->
+
+                <div class="content-box-header">
+
+                        <h3><?php __('Stanice');?></h3>
+
+                </div> <!-- End .content-box-header -->
+
+                    <div class="content-box-content">
+                        <div class="tab-content default-tab">
+
+                            <?php echo $this->element('stations/it_image_menu');?>
 
                         </div> <!-- End tab-content -->
                     </div> <!-- End .content-box-content -->

@@ -1,11 +1,12 @@
 <?php //pr($employees)?>
-<?php echo $this->Wizard->progressMenu(array('locomotive', 'cargo', 'driver', 'review', 'kontrola'));?>
+<?php echo $this->Wizard->progressMenu(array('locomotive' => ' * Výběr hnacího vozu', 'cargo' => ' * Výběr nákladního vozu', 'driver' => ' * Výběr strojvedoucího', 'review' => ' * Dokončení vlakové soupravy'), array('wrap' => 'wrap'));?><br/>
 <?php echo $form->create('Train',array('id'=>'TrainCreateForm','url'=>$this->here));?>
-    <h2>Přídání vlakové soupravy</h2>
+ <br/><br/>
 <?php
         echo $this->SimplaBoxes->clear();
         echo $this->SimplaBoxes->start_content_box(__('Krok '.$wizard->stepNumber().': Výběr strojvůdců', true));
-            echo $this->SimplaBoxes->start_content_tab(true);
+                ?><div class="cargoScroll"><?php
+        echo $this->SimplaBoxes->start_content_tab(true);
 
             echo $this->SimplaTableWp->start_table('Employee');
                 echo $this->SimplaTableWp->table_head(
@@ -31,7 +32,9 @@
                             'pagination' => true
                         ));
             echo $this->SimplaTableWp->end_table();?>
-
+  </div>
+     <?php  echo $this->SimplaBoxes->end_content_tab();
+        echo $this->SimplaBoxes->end_content_box();?>
         <div class="submit">
         <?php
          echo $form->submit('Continue', array('div'=>false));

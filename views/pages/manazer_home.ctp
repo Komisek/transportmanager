@@ -8,14 +8,14 @@
 
                 <div class="content-box-header">
 
-                        <h3><?php __('Uživatelé');?></h3>
+                        <h3><?php __('Objednávky');?></h3>
 
                 </div> <!-- End .content-box-header -->
 
                     <div class="content-box-content">
                         <div class="tab-content default-tab">
 
-                            <?php echo $this->element('employees/image_menu');?>
+                            <?php echo $this->element('orders/manazer_image_menu');?>
 
                         </div> <!-- End tab-content -->
                     </div> <!-- End .content-box-content -->

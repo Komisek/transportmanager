@@ -1,5 +1,7 @@
 <div class="wagonSeries index">
-	<h2><?php __('Vozové řady');?></h2>
+	<?php echo $this->SimplaBoxes->clear();
+        echo $this->SimplaBoxes->start_content_box(__('Výpis vozových řad', true));
+        echo $this->SimplaBoxes->start_content_tab(true);?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('Základní řada', 'zakladni_rada');?></th>
@@ -24,13 +26,18 @@
 		<td><?php echo $wagonSeries['WagonSeries']['delka']; ?>&nbsp;</td>
 		<td><?php echo $wagonSeries['WagonSeries']['unosnost']; ?>&nbsp;</td>
 		<td class="actions">
+                        <?php echo $this->Html->image('icons/simplicio/16x16/cargowagon_view.png', array('alt' => 'Detail')) ;?>
 			<?php echo $this->Html->link(__('Detail', true), array('action' => 'view', $wagonSeries['WagonSeries']['id'])); ?>
+                        <?php echo $this->Html->image('icons/simplicio/16x16/cargowagon_edit.png', array('alt' => 'Upravit')) ;?>
 			<?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $wagonSeries['WagonSeries']['id'])); ?>
+                        <?php echo $this->Html->image('icons/simplicio/16x16/cargowagon_delete.png', array('alt' => 'Smazat')) ;?>
 			<?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $wagonSeries['WagonSeries']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $wagonSeries['WagonSeries']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
+        <?php echo $this->SimplaBoxes->end_content_tab();
+        echo $this->SimplaBoxes->end_content_box();?>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -46,7 +53,7 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php __('Další možnosti'); ?></h3>
+	<h3><?php __('Kam dál?'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Přidat vozovou řadu', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Zobrazit nákladní vozy', true), array('controller' => 'cargo_wagons', 'action' => 'index')); ?> </li>

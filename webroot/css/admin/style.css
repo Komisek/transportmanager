@@ -96,7 +96,22 @@ a.remove-link:hover {
 				}
 
 /********************************      Sidebar      ********************************/
+.complete {
+    font-size: 20px;
+}
 
+.incomplete {
+    font-size: 20px;
+}
+
+.active {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.expected {
+   font-size: 20px;
+}
 .cargoScroll {
     width: 974px;
     height: 500px;

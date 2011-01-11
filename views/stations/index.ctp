@@ -1,57 +1,52 @@
 <div class="stations index">
-	<h2><?php __('Stanice');?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('Název', 'name');?></th>
-			<th><?php echo $this->Paginator->sort('okres');?></th>
-			<th><?php echo $this->Paginator->sort('kraj');?></th>
-			<th><?php echo $this->Paginator->sort('Číslo', 'cislo');?></th>
-			<th><?php echo $this->Paginator->sort('gps');?></th>
-			<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-	$i = 0;
-	foreach ($stations as $station):
-		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
-	?>
-	<tr<?php echo $class;?>>
-		<td><?php echo $station['Station']['name']; ?>&nbsp;</td>
-		<td><?php echo $station['Station']['okres']; ?>&nbsp;</td>
-		<td><?php echo $station['Station']['kraj']; ?>&nbsp;</td>
-		<td><?php echo $station['Station']['cislo']; ?>&nbsp;</td>
-		<td><?php echo $station['Station']['gps']; ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('Detail', true), array('action' => 'view', $station['Station']['id'])); ?>
-			<?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $station['Station']['id'])); ?>
-			<?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $station['Station']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $station['Station']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Stánka %page% z %pages%, celkový počet záznamu %count%, zobrazeny záznamy %start% - %end%', true)
-	));
-	?>	</p>
+    <?php
+        echo $this->SimplaBoxes->clear();
+        echo $this->SimplaBoxes->start_content_box(__('Výpis Stanic', true));
+            echo $this->SimplaBoxes->start_content_tab(true);
 
-	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('předchozí', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('další', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-	</div>
+            echo $this->SimplaTable->start_table('Station');
+                echo $this->SimplaTable->table_head(
+                        array(
+                            __('Název', true),
+                            __('Okres', true),
+                            __('Kraj', true),
+                            __('Číslo', true),
+                            __('Akce', true)
+                        ));
+                echo $this->SimplaTable->table_body(
+                        $stations,
+                        array(
+                            'Station.name',
+                            'Station.okres',
+                            'Station.kraj',
+                            'Station.cislo',
+                            'actions' => array(
+                                'station.view' => __('Detail', true),
+                                'station.edit' => __('Upravit', true),
+                                'station.delete' => __('Smazat', true),
+                            )
+                        ));
+                echo $this->SimplaTable->table_foot(
+                        array(
+                            'addAction' =>  array('text' => __('Přidat novou stanici', true), 'url' => array('admin' => true, 'controller' => 'stations', 'action' => 'add')),
+                            'pagination' => true
+                        ));
+            echo $this->SimplaTable->end_table();
+
+            //debug($employees);
+
+            echo $this->SimplaBoxes->end_content_tab();
+        echo $this->SimplaBoxes->end_content_box();
+    ?>
 </div>
 <div class="actions">
-	<h3><?php __('Úpravy'); ?></h3>
+	<h3><?php __('Kam dál?'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Přidat stanici', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Zobrazit cesty', true), array('controller' => 'paths', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nová cesta', true), array('controller' => 'paths', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Zobrazit okolní stanice', true), array('controller' => 'near_stations', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Zobraz Trasy', true), array('controller' => 'routes', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
+
+
+
