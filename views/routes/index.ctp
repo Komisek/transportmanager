@@ -1,68 +1,43 @@
 <div class="routes index">
-	<h2><?php __('Trasy');?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('Čislo trasy','id');?></th>
-			<th><?php echo $this->Paginator->sort('Počáteční stanice', 'start_station_id');?></th>
-			<th><?php echo $this->Paginator->sort('Cílová stanice','end_station_id');?></th>
-			<th><?php echo $this->Paginator->sort('Datum a čas odjezdu','datum_cas_odjezdu');?></th>
-			<th><?php echo $this->Paginator->sort('Datum a čas příjezdu','datum_cas_prijezdu');?></th>
-			<th><?php echo $this->Paginator->sort('Periodicita','periodicity_id');?></th>
-			<th><?php echo $this->Paginator->sort('Číslo vlaku','train_id');?></th>
-			<th><?php echo $this->Paginator->sort('Cesta','path_id');?></th>
-			<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-	$i = 0;
-	foreach ($routes as $route):
-		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
-	?>
-	<tr<?php echo $class;?>>
-		<td><?php echo $route['Route']['id']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($route['StartStation']['name'], array('controller' => 'stations', 'action' => 'view', $route['StartStation']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($route['EndStation']['name'], array('controller' => 'stations', 'action' => 'view', $route['EndStation']['id'])); ?>
-		</td>
-		<td><?php echo $route['Route']['datum_cas_odjezdu']; ?>&nbsp;</td>
-		<td><?php echo $route['Route']['datum_cas_prijezdu']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($route['Periodicity']['name'], array('controller' => 'periodicities', 'action' => 'view', $route['Periodicity']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($route['Train']['id'], array('controller' => 'trains', 'action' => 'view', $route['Train']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($route['Path']['id'], array('controller' => 'paths', 'action' => 'view', $route['Path']['id'])); ?>
-		</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('Detail', true), array('action' => 'view', $route['Route']['id'])); ?>
-			<?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $route['Route']['id'])); ?>
-			<?php echo $this->Html->link(__('Smazat', true), array('action' => 'delete', $route['Route']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $route['Route']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-		<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Stánka %page% z %pages%, celkový počet záznamu %count%, zobrazeny záznamy %start% - %end%', true)
-	));
-	?>	</p>
+    <?php
+        echo $this->SimplaBoxes->clear();
+        echo $this->SimplaBoxes->start_content_box(__('Výpis definovaných tras', true));
+            echo $this->SimplaBoxes->start_content_tab(true);
+                echo $this->SimplaTable->start_table('Route');
+                    echo $this->SimplaTable->table_head(
+                            array(
+                                __('Počáteční stanice', true),
+                                __('Cílová stanice', true),
+                                __('Datum a čas odjezdu', true),
+                                __('Datum a čas příjezdu', true)
+                            ));
+                    echo $this->SimplaTable->table_body(
+                            $routes,
+                            array(
+                                'StartStation.name',
+                                'EndStation.name',
+                                'Route.datum_cas_odjezdu',
+                                'Route.datum_cas_prijezdu',
+                                'actions' => array(
+                                    'route.view' => __('Detail', true),
+                                    
+                                    'route.delete' => __('Smazat', true),
+                                    )
+                                )
+                            );
+                    echo $this->SimplaTable->table_foot(
+                        array(
+                            'addAction' =>  array('text' => __('Přidat novou trasu', true), 'url' => array('controller' => 'routes', 'action' => 'add')),
+                            'pagination' => true
+                        ));
 
-	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('předchozí', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('další', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-	</div>
-</div>
+
+                echo $this->SimplaTable->end_table();
+            echo $this->SimplaBoxes->end_content_tab();
+        echo $this->SimplaBoxes->end_content_box();
+    ?>
 <div class="actions">
-	<h3><?php __('Úpravy'); ?></h3>
+	<h3><?php __('Kam dál?'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Přidat trasu', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Zobraz periodicity', true), array('controller' => 'periodicities', 'action' => 'index')); ?> </li>
