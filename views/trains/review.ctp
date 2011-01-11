@@ -1,13 +1,22 @@
-<?php pr($wizardData)?>
-<?php echo $this->Wizard->progressMenu(array('locomotive', 'cargo', 'driver', 'route', 'review'));?>
+<?php 
+    //pr($wizardData);
+    //echo $wizardData['Train'][1];
+foreach ($wizardData['cargo']['Train'] as $cargo) {
+       if($cargo != 0){
+           echo $cargo;?><br/><?php
+       }
+    }
+
+?>
+<?php echo $this->Wizard->progressMenu(array('locomotive', 'cargo', 'driver', 'review', 'kontrola'));?>
 <?php echo $form->create('Train',array('id'=>'TrainCreateForm','url'=>$this->here));?>
     <h2>Přídání vlakové soupravy</h2>
 <?php
         echo $this->SimplaBoxes->clear();
         echo $this->SimplaBoxes->start_content_box(__('Krok '.$wizard->stepNumber().': Dokončení', true));
             echo $this->SimplaBoxes->start_content_tab(true);
-
-            echo $form->input('stav_schvaleni');?>
+            $options = array('Čeká se na odpověď' =>  'Čeká se na odpověď','Rezervováno' => 'Rezervováno','Nerezervováno' =>  'Nerezervováno');
+            echo $form->select('stav_rezervace', $options);?>
 
         <div class="submit">
         <?php

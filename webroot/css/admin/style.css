@@ -97,6 +97,12 @@ a.remove-link:hover {
 
 /********************************      Sidebar      ********************************/
 
+.cargoScroll {
+    width: 974px;
+    height: 500px;
+    overflow: auto;
+}
+
 #sidebar {
                 background: url('/img/admin/bg-sidebar.gif') top left no-repeat;
                 width: 230px;

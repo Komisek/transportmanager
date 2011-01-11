@@ -5,7 +5,8 @@
 <?php
         echo $this->SimplaBoxes->clear();
         echo $this->SimplaBoxes->start_content_box(__('Krok '.$wizard->stepNumber().': Výběr nákladních vozů', true));
-            echo $this->SimplaBoxes->start_content_tab(true);
+        ?><div class="cargoScroll"><?php
+        echo $this->SimplaBoxes->start_content_tab(true);
 
             echo $this->SimplaTableWp->start_table('CargoWagon');
                 echo $this->SimplaTableWp->table_head(
@@ -33,16 +34,18 @@
                             'pagination' => true
                         ));
             echo $this->SimplaTableWp->end_table();?>
-
-        <div class="submit">
+        </div>
+    <?php  echo $this->SimplaBoxes->end_content_tab();
+            echo $this->SimplaBoxes->end_content_box();?>
+    <div class="submit">
         <?php
          echo $form->submit('Continue', array('div'=>false));
          echo $form->submit('Cancel', array('name'=>'Cancel','div'=>false));
          ?>
     </div>
 
-    <?php  echo $this->SimplaBoxes->end_content_tab();
-        echo $this->SimplaBoxes->end_content_box();?>
+
+
 
     <?php
     //echo $form->input('Locomotive',  array('label' => 'Hnací vozy'));

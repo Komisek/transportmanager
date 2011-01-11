@@ -1,5 +1,5 @@
 <?php //pr($routes)?>
-<?php echo $this->Wizard->progressMenu(array('locomotive', 'cargo', 'driver', 'route', 'review'));?>
+<?php echo $this->Wizard->progressMenu(array('locomotive', 'cargo', 'driver', 'route', 'review', 'kontrola'));?>
 <?php echo $form->create('Train',array('id'=>'TrainCreateForm','url'=>$this->here));?>
     <h2>Přídání vlakové soupravy</h2>
 <?php
@@ -25,11 +25,7 @@
                             'Route.datum_cas_prijezdu',
                             'Periodicity.name',
                             ));
-                echo $this->SimplaTableWp->table_foot(
-                        array(
-                            'addAction' =>  array('text' => __('Přidat nový hnací vůz', true), 'url' => array('admin' => true, 'controller' => 'locomotives', 'action' => 'add')),
-                            'pagination' => true
-                        ));
+                echo $this->Html->link('Přidat novou trasu', '/routes/add', array('target' => '_blank'));
             echo $this->SimplaTableWp->end_table();?>
 
         <div class="submit">

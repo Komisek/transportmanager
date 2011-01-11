@@ -67,7 +67,7 @@
                             <td><?php echo $cargoWagon['him'];?></td>
                             <td><?php echo $cargoWagon['cislo_vozu'];?></td>
                             <td class="actions">
-				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'cargo_wagon', 'action' => 'view', $locomotive['id'])); ?>
+				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'cargo_wagon', 'action' => 'view', $cargoWagon['id'])); ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -108,7 +108,9 @@
         echo $this->SimplaBoxes->end_content_box();?>
         <?php echo $this->SimplaBoxes->start_content_box(__('Informace o trase', true));
                 echo $this->SimplaBoxes->start_content_tab(true);?>
-	<?php if (!empty($train['Route'])):?>
+	<?php //pr($routes); ?>
+    
+        <?php if (!empty($train['Route'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Počáteční stanice'); ?></th>
@@ -125,9 +127,9 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $route['start_station_id'];?></td>
-			<td><?php echo $route['end_station_id'];?></td>
-			<td><?php echo $route['periodicity_id'];?></td>
+			<td><?php echo $routes[0]['StartStation']['name'].' - '.$route['start_station_id'];?></td>
+			<td><?php echo $routes[0]['EndStation']['name'].' - '.$route['start_station_id'];?></td>
+			<td><?php echo $routes[0]['Periodicity']['name'].' - '.$route['start_station_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Detal', true), array('controller' => 'routes', 'action' => 'view', $route['id'])); ?>
 			</td>

@@ -4,10 +4,10 @@ class TrainsController extends AppController {
 	var $name = 'Trains';
         var $components = array('Wizard.Wizard');
         var $helpers = array('Form', 'Html', 'Session', 'Menu', 'Time', 'SimplaForm', 'SimplaTableWp', 'SimplaBoxes');
-        var $uses = array('Train', 'Locomotive', 'CargoWagon', 'Employee', 'Route');
+        var $uses = array('Train', 'Locomotive', 'LocomotivesTrain', 'CargoWagon', 'CargoWagonsTrain', 'Employee', 'EmployeesTrain', 'Route', 'Periodicity', 'Stations');
 
         function beforeFilter() {
-	$this->Wizard->steps = array('locomotive', 'cargo', 'driver', 'route', 'review');
+	$this->Wizard->steps = array('locomotive', 'cargo', 'driver', 'review');
         $this->Wizard->completeUrl = '/trains/confirm';
         }
 
@@ -25,16 +25,17 @@ class TrainsController extends AppController {
             //pr($this->Wizard->read());
         }
         function _processLocomotive() {
-            $this->Locomotive->set($this->data);
+            //$this->Locomotive->set($this->data);
                 return true;
         }
 
         function _prepareCargo(){
             $cargoWagons = $this->Train->CargoWagon->find('all');
             $this->set(compact('cargoWagons'));
-            pr($this->Wizard->read());
+          //  pr($this->Wizard->read());
         }
         function _processCargo() {
+            //$this->CargoWagon->set($this->data);
             return true;
         }
 
@@ -43,6 +44,7 @@ class TrainsController extends AppController {
             $this->set(compact('employees'));
         }
         function _processDriver() {
+           // $this->Employee->set($this->data);
             return true;
         }
 
@@ -51,23 +53,72 @@ class TrainsController extends AppController {
             $this->set(compact('routes'));
         }
         function _processRoute() {
+           // $this->Route->set($this->data);
             return true;
         }
 
         function _prepareReview(){
             $wizardData = $this->Wizard->read();
+            //$wizardData = Set::extract('/Train/', $wizardData);
             $routes = $this->Train->Route->find('all');
-            $this->set(compact('routes'));
+            $this->set(compact('routes', 'wizardData'));
         }
         function _processReview(){
+          //  $this->Route->set($this->data);
             return true;
+        }
+        function _prepareKontrola() {
+            $wizardData = $this->Wizard->read();
+            $this->set(compact('wizardData'));
         }
         function _afterComplete() {
 		$wizardData = $this->Wizard->read();
-		pr($wizardData);
 
+
+                $this->Train->create();
+                $this->Train->set('stav_rezervace', $wizardData['review']['Train']['stav_rezervace']);
+                $this->Train->save();
+
+                $train = $this->Train->id;
+                foreach ($wizardData['cargo']['Train'] as $cargo) {
+                    if($cargo != 0){
+                        /*$this->CargoWagonsTrain->create();
+                        //$this->CargoWagonsTrain->set();
+                        $pole = array('CargoWagonsTrain' =>
+                                                      array('cargo_wagon_id' => $cargo,
+                                                          'train_id' => $train));
+                        $this->CargoWagonsTrain->save($pole);
+                        pr($pole);*/
+                        $this->CargoWagonsTrain->query('insert into cargo_wagons_trains values ('.$cargo.','.$train.')');
+                    }
+                }
+                foreach ($wizardData['locomotive']['Train'] as $cargo) {
+                    if($cargo != 0){
+                       /* $this->LocomotivesTrain->create();
+                        //$this->CargoWagonsTrain->set();
+                        $pole = array('LocomotivesTrain' =>
+                                                      array('locomotive_id' => $cargo,
+                                                          'train_id' => $train));
+                        $this->LocomotivesTrain->save($pole, array('update' => false));*/
+                        //pr($cargo);
+                        $this->LocomotivesTrain->query('insert into locomotives_trains values ('.$train.','.$cargo.')');
+
+                    }
+                }
+                foreach ($wizardData['driver']['Train'] as $cargo) {
+                    if($cargo != 0){
+                        /*$this->CargoWagonsTrain->create();
+                        //$this->CargoWagonsTrain->set();
+                        $pole = array('CargoWagonsTrain' =>
+                                                      array('cargo_wagon_id' => $cargo,
+                                                          'train_id' => $train));
+                        $this->CargoWagonsTrain->save($pole);
+                        pr($pole);*/
+                        $this->EmployeesTrain->query('insert into employees_trains values ('.$cargo.','.$train.')');
+                    }
+                }
 //		$this->Client->save($account['Client'], false, array('first_name', 'last_name', 'phone'));
-
+            //die();
 	}
 
         function index() {
@@ -80,7 +131,10 @@ class TrainsController extends AppController {
 			$this->Session->setFlash(__('Invalid train', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('train', $this->Train->read(null, $id));
+		$routes = $this->Route->find('all');
+                $this->set(compact('routes'));
+                $this->set('train', $this->Train->read(null, $id));
+
 	}
 
 	function add() {

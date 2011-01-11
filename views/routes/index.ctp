@@ -10,9 +10,6 @@
 			<th><?php echo $this->Paginator->sort('Periodicita','periodicity_id');?></th>
 			<th><?php echo $this->Paginator->sort('Číslo vlaku','train_id');?></th>
 			<th><?php echo $this->Paginator->sort('Cesta','path_id');?></th>
-			<th><?php echo $this->Paginator->sort('Stav schválení','stav_schvaleni');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -42,9 +39,6 @@
 		<td>
 			<?php echo $this->Html->link($route['Path']['id'], array('controller' => 'paths', 'action' => 'view', $route['Path']['id'])); ?>
 		</td>
-		<td><?php echo $route['Route']['stav_schvaleni']; ?>&nbsp;</td>
-		<td><?php echo $route['Route']['created']; ?>&nbsp;</td>
-		<td><?php echo $route['Route']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Detail', true), array('action' => 'view', $route['Route']['id'])); ?>
 			<?php echo $this->Html->link(__('Upravit', true), array('action' => 'edit', $route['Route']['id'])); ?>
