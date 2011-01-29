@@ -1,5 +1,5 @@
 <div class="trains index">
-        <?php //pr($trains)?>
+        <?php pr($trains)?>
     <?php
         echo $this->SimplaBoxes->clear();
         echo $this->SimplaBoxes->start_content_box(__('Výpis vlakových souprav', true));

@@ -179,6 +179,31 @@ class TrainsController extends AppController {
                 $this->set(compact('routes', 'cargoWagons', 'locomotives', 'employees'));
 	}
 
+        function editmi($id = null) {
+		if (!$id && empty($this->data)) {
+			$this->Session->setFlash(__('Invalid train', true));
+			$this->redirect(array('controller' => 'orders','action' => 'index'));
+		}
+		if (!empty($this->data)) {
+			if ($this->Train->save($this->data)) {
+				$this->Session->setFlash(__('The tr1ain has been saved', true));
+				$this->redirect(array('controller' => 'orders','action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The train could not be saved. Please, try again.', true));
+			}
+		}
+		if (empty($this->data)) {
+			$this->data = $this->Train->read(null, $id);
+		}
+		$routes = $this->Train->Route->find('list');
+                $cargoWagons = $this->Train->CargoWagon->find('list');
+       		$locomotives = $this->Train->Locomotive->find('list');
+		$employees = $this->Train->Employee->find('list',  array(
+                                                          'conditions' => array('role_id' => 7 )));
+                $this->set(compact('routes', 'cargoWagons', 'locomotives', 'employees'));
+                $this->Train->query('update trains set stav_rezervace="Čeká se na odeslání k MI" where id='.$id);
+	}
+
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for employee', true));

@@ -5,7 +5,7 @@
         echo $this->SimplaBoxes->clear();
         echo $this->SimplaBoxes->start_content_box(__('Krok '.$wizard->stepNumber().': Dokončení', true));
             echo $this->SimplaBoxes->start_content_tab(true);
-            $options = array('Připraveno pro objednání u MI' => 'Připraveno pro objednání u MI', 'Čeká se na odpověď' =>  'Čeká se na odpověď','Rezervováno' => 'Rezervováno','Nerezervováno' =>  'Nerezervováno');
+            $options = array('Čeká se na odeslání k MI' => 'Čeká se na odeslání k MI');
             echo $form->select('stav_rezervace', $options);?>
 
         <div class="submit">
