@@ -9,13 +9,25 @@
         echo $this->SimplaBoxes->start_content_tab(true);
 
             echo $this->SimplaTableWp->start_table('CargoWagon');
-                echo $this->SimplaTableWp->table_head(
+                /*echo $this->SimplaTableWp->table_head(
                         array(
                             __('Číslo NV', true),
                             __('Číslo HIM', true),
                             __('Vozová řada', true),
                             __('Akce', true)
-                        ));
+                        ));*/
+        $out ='';
+        $out .= '<thead>'.NL;
+        $out .= '<tr>'.NL;
+        $out .= '<th><input class="check-all" type="checkbox" /></th>'.NL;
+            $out .= '<th>'.__('Číslo NV', true).'</th>'.NL;
+            $out .= '<th>'.__('Číslo HIM', true).'</th>'.NL;
+            $out .= '<th filter-type="ddl">'.__('Vozová řada', true).'</th>'.NL;
+            $out .= '<th>'.__('Akce', true).'</th>'.NL;
+        $out .= '</tr>'.NL;
+        $out .= '</thead>'.NL;
+        echo $out;
+
                 echo $this->SimplaTableWp->table_body(
                         $cargoWagons,
                         array(
@@ -44,11 +56,20 @@
          ?>
     </div>
 
+<?php
+echo $form->end();
 
+$this->Html->script('picnet-release/picnet.table.filter.min',  array('inline' => false));
+?>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        var options = {
+            selectOptionLabel: '<?php __('Vyberte ...');?>',
+            enableCookies: 'false'
+        };
 
-    <?php
-    //echo $form->input('Locomotive',  array('label' => 'Hnací vozy'));
-    ?>
-
-<?php echo $form->end();?>
+        $('div.cargoScroll table').tableFilter(options);
+        $('div.cargoScroll table .filters #filter_4').hide();
+    });
+</script>
