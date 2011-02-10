@@ -68,7 +68,6 @@
     echo $this->SimplaForm->input_small('Route.datum_cas_odjezdu', array('label' => __('Datum a čas odjezdu', true), 'type' => 'text', 'class' => 'text-input small-input dtpicker'));
     echo $this->SimplaForm->input_small('Route.datum_cas_prijezdu', array('label' => __('Datum a čas příjezdu', true), 'type' => 'text', 'class' => 'text-input small-input dtpicker'));
     echo $this->SimplaForm->select('Route.periodicity_id', $periodicities, 5, array('legend' => __('Periodicita jízdy', true)));
-    echo $this->SimplaForm->input_small('Route.train_id', array('label' => 'Číslo vlakové soupravy'));
 
     echo $this->SimplaForm->end(array('label' => __('Přidat', true)));
 

@@ -14,6 +14,9 @@ class LocomotivesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('locomotive', $this->Locomotive->read(null, $id));
+                $this->loadModel('Route');
+                $routes = $this->Route->find('all');
+                $this->set(compact('routes'));
 	}
 
 	function add() {

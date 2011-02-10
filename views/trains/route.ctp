@@ -1,5 +1,5 @@
 <?php //pr($routes)?>
-<?php echo $this->Wizard->progressMenu(array('locomotive', 'cargo', 'driver', 'route', 'review', 'kontrola'));?>
+<?php echo $this->Wizard->progressMenu(array('route' => 'Výběr trasy', 'locomotive' => ' * Výběr hnacího vozu', 'cargo' => ' * Výběr nákladního vozu', 'driver' => ' * Výběr strojvedoucího', 'review' => ' * Dokončení vlakové soupravy'), array('wrap' => 'wrap'));?><br/>
 <?php echo $form->create('Train',array('id'=>'TrainCreateForm','url'=>$this->here));?>
     <h2>Přídání vlakové soupravy</h2>
 <?php
