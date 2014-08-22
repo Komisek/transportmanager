@@ -14,6 +14,9 @@ class CargoWagonsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('cargoWagon', $this->CargoWagon->read(null, $id));
+                $this->loadModel('Route');
+                $routes = $this->Route->find('all');
+                $this->set(compact('routes'));
 	}
 
 	function add() {

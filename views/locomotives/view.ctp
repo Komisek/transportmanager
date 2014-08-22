@@ -74,62 +74,17 @@
 		<li><?php echo $this->Html->link(__('Zobrazit vlakové soupravy', true), array('controller' => 'trains', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
-<div class="related">
-	<h3><?php __('Historie hnacího vozu');?></h3>
-	<?php if (!empty($locomotive['ArchivedTransportation'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('Path Id'); ?></th>
-		<th><?php __('Start Station Id'); ?></th>
-		<th><?php __('End Station Id'); ?></th>
-		<th><?php __('Datum Cas'); ?></th>
-		<th><?php __('Created'); ?></th>
-		<th><?php __('Modified'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($locomotive['ArchivedTransportation'] as $archivedTransportation):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $archivedTransportation['id'];?></td>
-			<td><?php echo $archivedTransportation['path_id'];?></td>
-			<td><?php echo $archivedTransportation['start_station_id'];?></td>
-			<td><?php echo $archivedTransportation['end_station_id'];?></td>
-			<td><?php echo $archivedTransportation['datum_cas'];?></td>
-			<td><?php echo $archivedTransportation['created'];?></td>
-			<td><?php echo $archivedTransportation['modified'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'archived_transportations', 'action' => 'view', $archivedTransportation['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'archived_transportations', 'action' => 'edit', $archivedTransportation['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'archived_transportations', 'action' => 'delete', $archivedTransportation['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $archivedTransportation['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Archived Transportation', true), array('controller' => 'archived_transportations', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
-</div>
 <div class="related">
-	<h3><?php __('Přiřazené  vlakové soupravy');?></h3>
+	<h3><?php __('Přiřazené vlakové soupravy');?></h3>
 	<?php if (!empty($locomotive['Train'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('Route Id'); ?></th>
+		<th><?php __('Číslo vlaku'); ?></th>
+		<th><?php __('Číslo trasy'); ?></th>
 		<th><?php __('Stav Rezervace'); ?></th>
-		<th><?php __('Created'); ?></th>
-		<th><?php __('Modified'); ?></th>
+                <th><?php __('Datum a čas odjezdu'); ?></th>
+                <th><?php __('Datum a čas příjezdu'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -144,21 +99,36 @@
 			<td><?php echo $train['id'];?></td>
 			<td><?php echo $train['route_id'];?></td>
 			<td><?php echo $train['stav_rezervace'];?></td>
-			<td><?php echo $train['created'];?></td>
-			<td><?php echo $train['modified'];?></td>
+                        <td><?php
+                        $i=0;
+                        foreach ($routes as $route) {
+                                //pr($route);
+                                if ($train['id'] == $route['Train']['id']){
+                                    echo $route['Route']['datum_cas_odjezdu'];
+                                }
+                                else
+                                    $i++;
+                            }
+                        ?></td>
+                        <td><?php
+                        $i=0;
+                        foreach ($routes as $route) {
+                                //pr($route);
+                                if ($train['id'] == $route['Train']['id']){
+                                    echo $route['Route']['datum_cas_odjezdu'];
+                                }
+                                else
+                                    $i++;
+                            };
+                        ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'trains', 'action' => 'view', $train['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'trains', 'action' => 'edit', $train['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'trains', 'action' => 'delete', $train['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $train['id'])); ?>
+				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'trains', 'action' => 'view', $train['id'])); ?>
+				<?php echo $this->Html->link(__('Upravit', true), array('controller' => 'trains', 'action' => 'edit', $train['id'])); ?>
+				<?php echo $this->Html->link(__('Smazat', true), array('controller' => 'trains', 'action' => 'delete', $train['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $train['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Train', true), array('controller' => 'trains', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>

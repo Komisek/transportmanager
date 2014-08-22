@@ -77,9 +77,8 @@
             <td><?php echo $train['Route']['datum_cas_prijezdu']?></td>
             <td>
                 <ul>
-                    <li><?php echo $this->Html->link(__('Zobrazit datovou větu', true), array('controller' => 'orders', 'action' => 'xmlmi', $train['Train']['id'])); ?> </li>
-                    <li><?php echo $this->Html->link(__('Schválit', true), array('controller' => 'orders', 'action' => 'schvaleni', $train['Train']['id'])); ?> </li>
-                    <li><?php echo $this->Html->link(__('Neschválit', true), array('controller' => 'orders', 'action' => 'neschvaleni', $train['Train']['id'])); ?> </li>
+                    <li><?php echo $this->Html->link(__('Zobrazit datovou větu', true), array('controller' => 'orders', 'action' => 'vetami', $train['Train']['id'])); ?> </li>
+
         	</ul>
             </td>
             </tr><?php

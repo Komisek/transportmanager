@@ -1,8 +1,7 @@
 <div class="routes view">
     <?php
-    //pr($this->Route->__paths($route['Path']));
-    pr($route);
-    pr($paths);
+//    pr($route);
+  //  pr($paths);
         echo $this->SimplaBoxes->clear();
         echo $this->SimplaBoxes->start_content_box(__('Detail trasy', true));
             echo $this->SimplaBoxes->start_content_tab(true);

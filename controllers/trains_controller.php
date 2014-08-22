@@ -7,10 +7,35 @@ class TrainsController extends AppController {
         var $uses = array('Train', 'Locomotive', 'LocomotivesTrain', 'CargoWagon', 'CargoWagonsTrain', 'Employee', 'EmployeesTrain', 'Route', 'Periodicity', 'Stations');
 
         function beforeFilter() {
-	$this->Wizard->steps = array('locomotive', 'cargo', 'driver', 'review');
+	$this->Wizard->steps = array('route', 'locomotive', 'cargo', 'driver', 'review');
         $this->Wizard->completeUrl = '/trains/confirm';
         }
 
+        function neschvaleni($id = null) {
+		if (!$id && empty($this->data)) {
+			$this->Session->setFlash(__('Invalid train', true));
+			$this->redirect(array('controller' => 'orders','action' => 'index'));
+		}
+		if (!empty($this->data)) {
+			if ($this->Train->save($this->data)) {
+				$this->Session->setFlash(__('The tr1ain has been saved', true));
+				$this->redirect(array('controller' => 'orders','action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The train could not be saved. Please, try again.', true));
+			}
+		}
+		if (empty($this->data)) {
+			$this->data = $this->Train->read(null, $id);
+		}
+		$routes = $this->Train->Route->find('list');
+                $cargoWagons = $this->Train->CargoWagon->find('list');
+       		$locomotives = $this->Train->Locomotive->find('list');
+		$employees = $this->Train->Employee->find('list',  array(
+                                                          'conditions' => array('role_id' => 7 )));
+                $this->set(compact('routes', 'cargoWagons', 'locomotives', 'employees'));
+                $this->Train->query('update trains set stav_rezervace="Neschváleno" where id='.$id);
+        }
+        
         function confirm() {
         }
         
@@ -105,6 +130,7 @@ class TrainsController extends AppController {
 
                     }
                 }
+
                 foreach ($wizardData['driver']['Train'] as $cargo) {
                     if($cargo != 0){
                         /*$this->CargoWagonsTrain->create();

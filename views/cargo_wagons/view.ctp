@@ -1,4 +1,5 @@
 <div class="cargoWagons view">
+    <?php //pr($routes)  ?>
 <h2><?php  __('Nákladní vůz (detail)');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vozová řada'); ?></dt>
@@ -69,6 +70,8 @@
 		<th><?php __('Číslo vlaku'); ?></th>
 		<th><?php __('Číslo trasy'); ?></th>
 		<th><?php __('Stav Rezervace'); ?></th>
+                <th><?php __('Datum a čas odjezdu'); ?></th>
+                <th><?php __('Datum a čas příjezdu'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -83,6 +86,28 @@
 			<td><?php echo $train['id'];?></td>
 			<td><?php echo $train['route_id'];?></td>
 			<td><?php echo $train['stav_rezervace'];?></td>
+                        <td><?php
+                        $i=0;
+                        foreach ($routes as $route) {
+                                //pr($route);
+                                if ($train['id'] == $route['Train']['id']){
+                                    echo $route['Route']['datum_cas_odjezdu'];
+                                }
+                                else
+                                    $i++;
+                            }
+                        ?></td>
+                        <td><?php 
+                        $i=0;
+                        foreach ($routes as $route) {
+                                //pr($route);
+                                if ($train['id'] == $route['Train']['id']){
+                                    echo $route['Route']['datum_cas_odjezdu'];
+                                }
+                                else
+                                    $i++;
+                            };
+                        ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Detail', true), array('controller' => 'trains', 'action' => 'view', $train['id'])); ?>
 				<?php echo $this->Html->link(__('Upravit', true), array('controller' => 'trains', 'action' => 'edit', $train['id'])); ?>

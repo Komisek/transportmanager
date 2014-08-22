@@ -3,7 +3,7 @@
 class OrdersController extends AppController {
 
 	var $name = 'Orders';
-        var $uses = array('Train', 'Route', 'ArchivedTransportation');
+        var $uses = array('Train', 'Route', 'ArchivedTransportation', 'Station', 'Periodicity');
         var $helpers = array('Form', 'Html', 'Session', 'Menu', 'Time', 'SimplaForm', 'SimplaTableWp', 'SimplaBoxes', 'Xml');
 
         function index() {
@@ -83,8 +83,27 @@ class OrdersController extends AppController {
         }
 
         function xmlmi($id = null){
+                $this->layout = 'xml'.DS.'default';
+                if (!$id) {
+			$this->Session->setFlash(__('Invalid train', true));
+			$this->redirect(array('action' => 'index'));
+		}
+		$routes = $this->Route->find('all');
+                $this->set(compact('routes'));
+                $this->set('train', $this->Train->read(null, $id));
 
         }
+
+        function vetami($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid train', true));
+			$this->redirect(array('action' => 'index'));
+		}
+		$routes = $this->Route->find('all');
+                $this->set(compact('routes'));
+                $this->set('train', $this->Train->read(null, $id));
+
+	}
 
  /*       function archiv($id = null) {
                 if (!$id) {
